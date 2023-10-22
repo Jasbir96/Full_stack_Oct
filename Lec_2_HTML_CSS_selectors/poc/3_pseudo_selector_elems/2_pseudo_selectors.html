@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pseudo-elements Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* 
+    Pseudo selectors
+    * Usecase
+        * used to add content with the help of css
+    * Syntax two colons in front of selector
+    */
+
+    /* Add "Read more" link */
+    p::after {
+        /* only presnet when you use pesudo selectors */
+        content: " Read more";
+        color: blue;
+        text-decoration: underline;
+    }
+
+    /* Apply double underline to the first letter of paragraphs */
+p::first-letter {
+    text-decoration: underline double;
+}
+    /* Add "NEW" label to headings of articles published  */
+h2::before{
+    content: "New";
+    font-size: 1rem;
+    color:green ;
+}
+
+    /* Add quotation marks before and after blockquotes */
+</style>
+
+<body>
+    <h1>Latest Articles</h1>
+    <article class="new">
+        <h2>How to Create Stunning CSS Effects</h2>
+        <p>CSS allows you to create amazing visual effects on your website...</p>
+    </article>
+    <article class="new">
+        <h2>Improving Web Performance with Lazy Loading</h2>
+        <p>Lazy loading is an effective technique for optimizing your web page's performance...</p>
+    </article>
+    <article>
+        <h2>Mastering CSS Pseudo-elements</h2>
+        <p>Learn how to use CSS pseudo-elements to enhance your web designs...</p>
+    </article>
+    <blockquote>
+        Design is not just what it looks like and feels like.
+        Design is how it works.
+    </blockquote>
+</body>
+
+</html>

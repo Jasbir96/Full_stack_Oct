@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Challenge</title>
+</head>
+
+<style>
+    /* Write CSS code here to achieve the following tasks: */
+    /* 
+    Pseudo classes 
+    1. syntax : after element there will be only one colon
+    2. usecase : 
+        * usually used to style state of an element
+        * nth element
+
+    
+    */
+
+    /* 1. Select all the even paragraphs and give them a background color of lightblue. */
+    p:nth-child(even) {
+        background-color: lightblue;
+    }
+
+    /* 2. Select the first paragraph with class "highlight" and make its text color red. */
+   
+
+    /* 3. Select the last paragraph with class "highlight" and add a double underline. */
+
+    /* 4. Select every link (<a>) element when hovered, change its background color to yellow. */
+    /* link state -> when anchor wasn't previosuly clicked */
+    a:link {
+        color: red;
+    }
+
+    a:hover {
+        color: yellow;
+    }
+
+    a:active {
+        color: blue;
+    }
+</style>
+
+<body>
+    <p>I am the first paragraph.</p>
+    <div>
+        <p class="highlight">I am the third paragraph.</p>
+        <p class="highlight">I am the third paragraph.</p>
+
+    </div>
+    <p>I am the second paragraph.</p>
+    <p class="highlight">I am the third paragraph.</p>
+    <p class="highlight">I am the fourth paragraph.</p>
+    <a href="#">This is a link.</a>
+</body>
+
+</html>
