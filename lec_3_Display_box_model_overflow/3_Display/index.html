@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .block,
+    .inline,
+    .inline_block {
+        font-weight: bold;
+        font-family: sans-serif;
+    }
+
+
+    /* template starts from here */
+    .block {
+        /* height, width, p,m,border */
+        background-color: lightblue;
+        display: block;
+        /* userdefined height :works */
+        height: 100px;
+        /* userdefined width :works */
+        width: 100px;
+
+        /* padding */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+
+        /* margin  */
+        margin-top: 10px;
+        margin-left: 20px;
+        /* border */
+        border-top: 2px solid red;
+        border-left: 2px solid red;
+
+    }
+
+    .inline {
+        background-color: lightgreen;
+        display: inline;
+        /* user defined height : no */
+        height: 100px;
+        /* user defined width : no */
+        width: 100px;
+
+        /* padding */
+        padding-top: 30px;
+        padding-left: 30px;
+
+
+        /* margin works in horizontal*/
+        margin-left: 10px;
+        /* margin does 
+        not work in vertical directon */
+        margin-top: 10px;
+
+
+        /* border -> works*/
+        border-top: 2px solid red;
+        border-left: 2px solid red;
+
+
+    }
+
+    .inline_block {
+        background-color: mediumorchid;
+        display: inline-block;
+
+                /* user defined height : no */
+        height: 100px;
+        /* user defined width : no */
+        width: 100px;
+
+        /* padding */
+        padding-top: 30px;
+        padding-left: 30px;
+
+
+        /* margin works in horizontal*/
+        margin-left: 10px;
+        /* margin does 
+        not work in vertical directon */
+        margin-top: 10px;
+
+
+        /* border -> works*/
+        border-top: 2px solid red;
+        border-left: 2px solid red;
+    }
+</style>
+
+<body>
+    <!-- block level element  -->
+    <h2>hello from h2</h2>
+    <div class="block">Hello Hi how are you</div>
+    <div class="block">Hello Hi how are you</div>
+    <!-- inline element -> style a part of a line -->
+    <div class="inline">I am inline</div>
+    <div class="inline">I am inline</div>
+    <!--  inline block -->
+    <div class="inline_block">I am inline block</div>
+    <div class="inline">I am inline</div>
+</body>
+
+</html>
+
+<!-- 
+display :
+1. block 
+    next element  -> newline
+    padding -> works in all dir
+    uheight : works
+    uwidth : works
+    margin : works in all dir
+    border : works in all dir
+
+2. inline 
+    next element -> next to the current elem
+    padding -> works in all dir
+    uheight : not work
+    uwidth : not work
+    border : works in all dir
+    margin : horziontally
+
+3. inline block
+    next element -> next to the current elem
+padding -> works in all dir
+uheight : works
+uwidth : works
+margin : works in all dir
+border : works in all dir
+ -->

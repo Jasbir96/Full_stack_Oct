@@ -1,0 +1,36 @@
+
+/* presets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  sans-serif;
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/* header section  */
+header{
+
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.468),rgba(0, 0, 0, 0.864)) ,
+        url("./images/headerbg.jpg");
+    
+    height: 500px;
+    /* it will
+    adjust your bg image accoring 
+    to the height */
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1,a{
+    color:white;
+}
+
