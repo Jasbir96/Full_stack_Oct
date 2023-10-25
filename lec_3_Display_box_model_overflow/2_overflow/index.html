@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            color: darkorange
+        }
+
+
+        .box {
+            height: 100px;
+            width: 100px;
+            padding: 30px;
+            border: 5px solid red;
+            /* border-radius: 50%; */
+            margin-top: 50px;
+        }
+
+        /* .children{
+            height: 20px;
+            border:3px solid green;
+        } */
+
+        .overflow {
+            /* default */
+            /* overflow: visible; */
+            /* any extra content that is overflowing will be hidden*/
+            /* overflow: hidden; */
+            /* automatically add scrollbar according to the usecase */
+            /* overflow: auto; */
+
+            /* you will see scroll bars by default */
+            /* overflow: scroll;*/
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Overflow example</h1>
+    <div class="box overflow">
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque id in magnam nostrum, deserunt possimus corrupti repellat quaerat consequuntur asperiores.
+    </div>
+</body>
+
+</html>
