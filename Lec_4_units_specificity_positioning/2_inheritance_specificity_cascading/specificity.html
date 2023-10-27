@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    /* universal selector */
+    * {
+        color: blue !important;
+        font-size: 30px;
+    }
+
+    /* element selector */
+    div {
+        color: red;
+    }
+
+    /* class */
+    .child {
+        color: lightgreen;
+    }
+
+    div.child {
+        color: black
+    }
+
+    #unique {
+        color: lightpink;
+    }
+
+    .parent {
+        text-decoration: none;
+    }
+
+    /* a{
+        text-decoration: none;
+    } */
+    .child {
+        color: greenyellow !important;
+    }
+</style>
+
+<body>
+
+    <div class="child" id="unique" style="color:brown">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
+        explicabo corrupti,
+        asperiores natus quia nostrum! Tempora, asperiores, minus enim vel, nemo doloribus sed ad aliquid quia
+        quo quidem doloremque consequuntur.</div>
+    </div>
+
+    <div class="parent">
+        <a href="">I am something</a>
+
+    </div>
+
+
+</body>
+
+</html>
+
+<!-- important>id>class>element>universal-->

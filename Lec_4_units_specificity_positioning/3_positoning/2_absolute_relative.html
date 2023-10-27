@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            ;
+            text-align: center;
+        }
+
+        .parent {
+            margin-left: 1rem;
+            background-color: rgb(146, 85, 202);
+            width: 90vw;
+            position: relative;
+
+        }
+
+        .box {
+            width: 10rem;
+            height: 10rem;
+            margin-bottom: 1rem;
+            border: dashed;
+        }
+
+        .box-1 {
+            background-color: lightblue;
+        }
+
+        .box-2 {
+            background-color: rgb(240, 128, 128);
+
+            /* **********relative************ */
+            /* 
+            1. it moves element from it's orginal pos .
+           2.container will occupy it's orginal pos
+           */
+            /* position: relative; */
+            /* right by 200px; */
+            /* left: 200px; */
+            /* bottom by 100px */
+            /* top:100px; */
+
+            /* *******absolute********** */
+            /* 
+            1. container will not take it's orginal pos. it will allow next element to take
+            it's place
+            2. by default it measures left and top wrt `page origin`.
+                if you want measure left and top wrt to parent -> give parent relative
+            */
+            position: absolute;
+            top: 100px;
+            left: 100px;
+
+
+        }
+
+        .box-3 {
+            background-color: lightgreen;
+        }
+
+        .box-4 {
+            background-color: lightsalmon;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Position - Absolute, Relative </h2>
+
+    <div class="parent">
+        <div class="box box-1">1</div>
+        <div class="box box-2">2</div>
+        <div class="box box-3">3</div>
+        <div class="box box-4">4</div>
+
+    </div>
+</body>
+
+</html>
+

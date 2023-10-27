@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .px,
+    .rem,
+    .vh-vw,
+
+    .em {
+        margin-bottom: 20px;
+        background-color: lightgreen;
+    }
+
+    /* **************demo starts from here*************/
+    /* pixels is an absolute units */
+    .px {
+        height: 100px;
+    }
+
+    html {
+        font-size: 30px;
+    }
+
+    /* Relative unit  */
+    /* rem 
+    1. by default  1rem = font-size of html tag 
+    2. you can control rem unit by changing font-size of html tage
+    3. usecase : font-size across the whole ui
+    */
+    /* */
+
+    .rem {
+        font-size: 1rem;
+
+    }
+
+    /* 
+1em = font-size of the parent 
+usecase : adding padding in a container
+*/
+
+    .parent_em {
+        height: 50px;
+        background-color: rgb(255, 233, 224);
+        margin-bottom: 2em;
+        font-size: 20px;
+    }
+
+    .em {
+        /* width: 4rem; */
+        height: 2em;
+        background-color: rgb(141, 84, 84);
+        padding: 1em;
+    }
+
+    /* view width & view height  */
+    /* vh & vw
+    where 
+    100vh -> 100% of visible browser window screen height
+    100vw -> 100% of visible browser window screen width
+    Usecase : creating components that change it's h/w wrt to screen.
+    Realworld usecase : excel grid
+     */
+    .vh-vw {
+        height: 50vh;
+        width: 50vw;
+    }
+
+    /* percentage units */
+    /*
+    It is relative to your parent eleement
+    Note : you should give your parent a unit 
+    that is other then percentage
+    */
+    .gp {
+        height: 10rem;
+        width: 10rem;
+        background-color: lightblue;
+    }
+
+    .parent {
+        background-color: lightgreen;
+        /* this thing is not working */
+        height: 70%;
+        width: 70%;
+    }
+
+    .child {
+        background-color: lightcoral;
+        height: 50%;
+        width: 50%;
+    }
+</style>
+<body>
+    <div class="vh-vw">VH - VW unit</div>
+    <div class="px">Pixel unit</div>
+    <div class="rem">REM Unit</div>
+    <div class="parent_em">
+        <div class="em">I am em</div>
+    </div>
+
+    <div class="gp">
+        <div class="parent">
+            <div class="child"> percentage </div>
+        </div>
+    </div>
+    <p>Lorem, ipsum.</p>
+
+</body>
