@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .parent,
+    .parent1,
+    .parent2 {
+        height: 30rem;
+        width: 32rem;
+        background-color: rgb(176, 141, 211);
+    }
+
+    .child,
+    .child1,
+    .child2 {
+        color: rgb(179, 40, 40);
+        font-size: 2rem;
+        background-color: lightcoral;
+        font-weight: bold;
+        border: dashed;
+        font-family: sans-serif;
+    }
+
+    /******************template starts from here ************/
+    .parent {
+        /* any children that are part of parent
+        will be placed one after another
+        */
+        display: flex;
+        /* default -> arrange children elemnts vertically */
+        /* align items -> vertical*/
+        /* default */
+        /* align-items: stretch; */
+        /* place items vertically center */
+        align-items: center;
+
+        /* align-items: flex-start; */
+        /* align-items: flex-end; */
+        /* ?? */
+        /* align-items: baseline; */
+    }
+
+    .parent {
+        /* justify-content: center; */
+        /* justify-content: flex-end; */
+        /*deafult -> align items horizontally  */
+        /* justify-content: flex-start; */
+        /* justify-content: space-evenly; */
+        /* justify-content: space-between; */
+        /* justify-content: space-around; */
+
+
+    }
+
+
+    /*******************************/
+    .child1 {
+        width: 9rem;
+        height: 10rem;
+    }
+
+    /* *************with height and width*********/
+
+    .parent1 {
+        display: flex;
+        /* align items -> vertical*/
+        /* default */
+        /* align-items: stretch; */
+        align-items: center;
+        /* align-items: flex-start; */
+        /* align-items: flex-end; */
+        /* align-items: baseline; */
+    }
+
+    .parent1 {
+        /* horizontal alignment */
+        /* justify-content: center; */
+        /* justify-content: flex-end; */
+        /* deafult value */
+        /* justify-content: flex-start; */
+
+        /* justify-content: space-evenly; */
+        /* justify-content: space-between; */
+        /* justify-content: space-around; */
+    }
+
+    /* combined  width of childrens more then parent */
+    .child2 {
+        width: 12rem;
+        height: 10rem;
+    }
+
+    .parent2 {
+        display: flex;
+        /* vertical alignment */
+        /* align-items: stretch; */
+        /* align-items: center; */
+        /* align-items: flex-start; */
+        align-items: flex-end;
+
+        /* you are aliging you boxes wrt baseline of the text  */
+        /* align-items: baseline; */
+
+        flex-wrap: wrap;
+
+        /* justify-content: center; */
+        /* justify-content: flex-end; */
+        /* deafult value */
+        /* justify-content: flex-start; */
+
+        /* justify-content: space-evenly; */
+        /* justify-content: space-between; */
+        justify-content: space-around;
+        gap: 2rem;
+
+
+    }
+
+    /* .one {
+        height: 15rem;
+        font-size: 1.9rem;
+    }
+
+    .h1 {
+        height: 20rem;
+        font-size: 1rem;
+    }
+
+    .h2 {
+        height: 15rem;
+        font-size: 1.5rem;
+    }
+
+    .h3 {
+        height: 15rem;
+        font-size: 1.7rem;
+    } */
+</style>
+
+<body>
+    <!-- 
+        without height/width to children elements
+            1. align items -> works
+                by default align items : strech
+            2. justify content -> will not work
+     -->
+    <h2>Flexbox Example</h2>
+    <h3>children Without Height and width</h3>
+
+    <div class="parent">
+        <div class="child one">I am child special
+            and i am being
+        </div>
+        <div class="child two ">I am child</div>
+        <div class="child three"> I am child</div>
+    </div>
+    <br>
+
+
+
+    <!-- ******************************************** -->
+    <!-- 
+             height/width to children elements 
+                1. align items -> works
+                    by default align items : strech
+                2. justify content -> works if
+                combined width of all the elements is 
+                less then the width of container
+         -->
+
+    <h3>children with Height and width</h3>
+    <div class="parent1">
+        <div class="child1 one">I am child special
+
+        </div>
+        <div class="child1 two ">I am child</div>
+        <div class="child1 three"> I am child</div>
+    </div>
+    <br>
+    <!-- ******************************************** -->
+    <!-- 
+when the combined width is more then parents width 
+-> all your children adjust there width
+width are just a suggestion in flexbox
+ -->
+    <h3>Flex Wrap</h3>
+    <div class="parent2">
+        <div class="child2 one">I am child special
+            and i am being
+        </div>
+        <div class="child2  two h1 ">I am child</div>
+        <div class="child2 three h2"> I am child</div>
+        <div class="child2 three h3"> I am child</div>
+    </div>
+
+
+
+
+</body>
+
+</html>
+
+
+<!-- 
+1. first are element styling 
+2. margin , border
+3. layout the elements 
+    * Position
+    * Flexbox:
+            arrange elements inside a container -> logically 
+ -->
+
+<!-- 
+1.  we usually don't control height of the element
+2. flexbox :
+    a. justify content -> combined width < parent's width.
+    b. flex-wrap when your children's combined with> parent's width
+    flex-wrap will send childrens to the next row
+
+    
+  -->

@@ -1,0 +1,25 @@
+/* 
+screen , print, potrait
+*/
+
+/* breakpoints 
+ */
+
+
+@media only screen and (max-width:1400px) {
+  body{
+    background-color: lightcoral;
+  }
+}
+
+@media only screen and (max-width:1100px) {
+  body {
+      background-color: lightgreen
+    }
+}
+@media only screen and (max-width:900px) {
+body {
+    background-color: lightseagreen;
+  }
+  
+}
