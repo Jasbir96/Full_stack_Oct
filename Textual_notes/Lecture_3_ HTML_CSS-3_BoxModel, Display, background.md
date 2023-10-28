@@ -15,8 +15,7 @@
 *  Project -> Header section
     - background properties
 
-card_type: cue_card
----
+
 
 ## Box Model
 **[Ask the learners]**
@@ -95,12 +94,7 @@ Add border, padding, and margin to this box.
 **Width of the element is** -> horizontal border + horizontal padding + width of the content
 **Element** -> Content + Padding + Border
 
----
-title: Box Model
-description: Border box and its comparison with default box model.
-duration: 2054
-card_type: cue_card
----
+
 
 ### Box Model 2
 Another method to write the above code is using box-sizing. Look at the code and output given here.
