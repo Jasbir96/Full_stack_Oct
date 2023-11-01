@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        width: 100%
+    }
+</style>
+
+<body>
+    <h1>Picture Tag Example</h1>
+    <!-- does not support -> source, picture and srcset -->
+    <picture>
+        <img src="Capture.jpg" alt="Example Image" />
+        <!-- deliver different type of images -->
+        <source srcset="Capture.webp 1x,
+        Capture_medium.webp  2x
+        
+        " type="image/webp">
+        <source srcset="Capture_small.jpg 1x,
+              Capture_medium.jpg  2x,
+              Capture_large.jpg  3x" type="image/jpeg">  
+    </picture>
+</body>
+
+</html>
+
+<!-- p -->
+
+<!-- deliver an images
+1. never serve raw files -> compress
+2. Deliver them using cdn
+3. use srcset attribute to share the images for different sizes
+4. TO use webp and different sources -> Picture
+
+-->
