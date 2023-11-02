@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- this script is the culprit -> those scripts are blocking  -->
+
+<body>
+    <h1>Hi How are You</h1>
+    <h2>Hi How are Jasbir</h2>
+    <h3>Hi How are You</h3>
+    <h4>Hi How are You</h4>
+    <h5>Hi How are You</h5>
+    <!--  defer and async -->
+    <script src="external.js" defer></script>
+    <script src="src2.js" async></script>
+    <script src="src3.js" async></script>
+</body>
+
+</html>
