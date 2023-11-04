@@ -1,6 +1,6 @@
 /***
  * EC : 
- * creation 
+ * a.creation 
  *  1.    global code
  *              -> access to it's own variable and function 
  *                  -> Hositing 
@@ -12,11 +12,10 @@
  *                          var -> undefined 
  *                          function -> memory 
  * 
- * 2. If there is no variable  present  that i want access in the current function scope then outer scope 
+ *  2. If there is no variable  present  that i want access in the current function scope then outer scope 
+ * b.) execute
+ * 
  * */ 
-
-
-
 console.log("19", a);
 var a = 10;
 console.log("21", a);
