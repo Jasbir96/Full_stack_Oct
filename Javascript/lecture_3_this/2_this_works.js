@@ -8,11 +8,11 @@
 //     }
 // }
 
-
-// cap.sayHi();
-// let sayHiAdd = cap.sayHi;
-// // 11
-// sayHiAdd();
+// method 
+cap.sayHi();
+let sayHiAdd = cap.sayHi;
+// function call
+sayHiAdd();
 
 // console.log("13", this);
 
@@ -42,19 +42,19 @@
  * 1. syntax sugar
  * 2. related to this 
  * **/
-var firstName = "loki";
-let cap = {
-    firstName: "Steve",
-    sayHi: ()=> {
-        console.log("53", this.firstName);
-        const iAmInner = () => {
-            console.log("55", this.firstName);
-        }
-        iAmInner();
-    }
-}
+// var firstName = "loki";
+// let cap = {
+//     firstName: "Steve",
+//     sayHi: ()=> {
+//         console.log("53", this.firstName);
+//         const iAmInner = () => {
+//             console.log("55", this.firstName);
+//         }
+//         iAmInner();
+//     }
+// }
 
-cap.sayHi();
+// cap.sayHi();
 
 
 

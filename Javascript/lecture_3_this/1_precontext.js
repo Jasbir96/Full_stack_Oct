@@ -1,20 +1,20 @@
-// let cap = {
-//     // property
-//     name: "Jasbir",
-//     last: "Singh",
+let cap = {
+    // property
+    name: "Jasbir",
+    last: "Singh",
     // method
-    // sayHi: function () {
-    //     console.log("Hi from Jasbir");
-    // }
-// }
+    sayHi: function () {
+        console.log("Hi from Jasbir");
+    }
+}
 // function
-// function fn() {
-//     console.log("I am a fn ");
-// }
-// // function call
+function fn() {
+    console.log("I am a fn ");
+}
+// function call
 // fn();
 
-// // method call
+// method call
 // cap.sayHi();
 /******************************************************/
 /********************
@@ -31,9 +31,9 @@
 //     console.log("I am fn2");
 //     return "rval from fn2";
 // }
-// // you are accessing the reference of the fn 
-// console.log("35", fn2);
-// // you accesing the return value by calling the fn
+// // // you are accessing the reference of the fn 
+// // console.log("35", fn2);
+// // // you accesing the return value by calling the fn
 // console.log("36", fn2());
 
 
