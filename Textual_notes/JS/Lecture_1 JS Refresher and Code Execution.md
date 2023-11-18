@@ -1,8 +1,5 @@
 # Full Stack LLD: JS-1: JS Refresher and Code Execution
-
 ---
-
-
 ## Agenda
 Topics to be covered in the class are as follows:
 * JS refresher
