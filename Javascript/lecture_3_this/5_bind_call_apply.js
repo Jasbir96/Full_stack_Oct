@@ -20,7 +20,7 @@ let ironMan = {
 
 // cap.sayHi("Peter", "Bruce");
 /*****method -> call : borrow a method*/
-// cap.sayHi.call(ironMan, "Black Panther", "Antman");
+cap.sayHi.call(ironMan, "Black Panther", "Antman");
 
 /*****method -> apply : borrow a method , you can pass n number of parameters**/
 // cap.sayHi.apply(ironMan, ["peter", "bruce", "Natasha", "Thor"])
