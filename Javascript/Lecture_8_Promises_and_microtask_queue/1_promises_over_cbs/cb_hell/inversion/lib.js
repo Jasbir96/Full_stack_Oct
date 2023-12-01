@@ -1,3 +1,5 @@
+const { resolve } = require("path");
+
 function runMlalgo(amount, cb) {
     console.log("running ml algo");
     console.log("processing payment");
@@ -12,9 +14,26 @@ function runMlalgo(amount, cb) {
 }
 
 
+/***
+ * promise can resolved / rejected once in 
+ * a life time 
+ * */
+function pRunMLAlgo() {
+    return new Promise(function (resolve, reject) {
+        console.log("running ml algo");
+        console.log("processing payment");
+        setTimeout(function () {
+            console.log("payment done");
+
+            resolve()
+        }, 1000);
+    })
+}
+
 
 
 module.exports = {
-    runMlalgo
+    runMlalgo,
+    pRunMLAlgo
 
 }

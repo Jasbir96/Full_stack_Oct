@@ -11,6 +11,6 @@ console.log("promise", promise);
 console.log("After");
 
 setTimeout(function () {
-    // when promise gets the data -> value is vsibile 
+    // when promise gets fullfilled  -> value is visible (may be error / value)
     console.log(promise);
 }, 1000);

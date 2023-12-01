@@ -1,7 +1,7 @@
 /****
  * callback hell : 
  * 1. nesting of cb  -> pryamid of doom
- * 2. Inversion of control -> the async function have access to my cbs and they can call however they event -> trust issue
+ * 2. Inversion of control ->the async function have access to my cbs and they can call however they event -> trust issue
  * ****/
 
 
@@ -33,6 +33,7 @@
 /****improving nesting*/
 let concatedContent = ""
 console.log("before");
+
 fs.readFile("./f1.txt", "utf-8", f1cb)
 function f1cb(err, content1) {
     if (err) {

@@ -8,13 +8,22 @@ let priceofOne = 20;
  * */
 // console.log("Before");
 // async function -> 3rd party
-lib.runMlalgo(amount, cb);
+// lib.runMlalgo(amount, cb);
 
 function cb() {
     amount = amount - priceofOne;
     console.log("amount", amount);
 }
-console.log("After");
+// console.log("After");
+/***********consumption**********/
+let promise = lib.pRunMLAlgo(amount);
+
+// data-> then
+promise.then(cb);
+
+promise.catch(function (err) {
+    console.log("err", err);
+})
 
 
 
