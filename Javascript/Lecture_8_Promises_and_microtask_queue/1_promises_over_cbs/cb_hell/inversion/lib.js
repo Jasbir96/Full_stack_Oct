@@ -15,7 +15,6 @@ function runMlalgo(amount, cb) {
 
 
 module.exports = {
-    runMlalgo,
-    pRunMLalgo
+    runMlalgo
 
 }
