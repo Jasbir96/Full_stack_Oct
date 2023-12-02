@@ -178,8 +178,6 @@ const fs = require("fs");
 //     })
 
 /************5. Exactly like case 4 *******/
-
-
 /**
  * How to create your Promise 
  * relation b/w -> then and catch
