@@ -23,7 +23,6 @@ function promisifedfsReadFile(filePath) {
             }
         })
     })
-
 }
 
 

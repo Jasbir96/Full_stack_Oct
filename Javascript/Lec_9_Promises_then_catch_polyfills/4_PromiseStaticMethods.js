@@ -1,12 +1,9 @@
 /*****
  * Static method on Promises
  *
- * // Promise.all -> all are reolved / no one is ,
-// Promise.any -> This returned promise fulfills when
-    1. any of the input's promises fulfills, with this first fulfillment value.
-    2. It rejects when all of the input's promises reject,
-// Promise.race-> This returned promise settles with the eventual state of the first promise that settles
-
+ * // Promise.all -> 
+// Promise.any -> 
+// Promise.race->
 // Promise.allsettled
 // Promise.withresolver()
  *  */
