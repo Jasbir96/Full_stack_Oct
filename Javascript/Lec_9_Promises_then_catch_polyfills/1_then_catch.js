@@ -4,13 +4,15 @@
  *
  *  Promise -> object
  *          * value  :  undefined,  value/err               
- *          * state :  pending , setteled -> 
+ *          * state :  pending , settled -> 
  *                                          resolved 
  *                                           rejected           
  *                                          
  *******************************************************************/
 /*****
- * *******************basics of then catch finally **********************************************************************************
+ * 
+ * 
+ * *******************setup  for then catch finally **********************************************************************************
  * for this section
  * we will only asume only one case of promise resolution -> when file is read
  *  we will only asume only one case of promise rejection -> when file is not found
@@ -21,8 +23,6 @@
  * promise is resolved
  * 2. you can attach multiple then to a given promise and every one will execute
  * ********/
-
-
 // let fs = require("fs");
 // let promise = fs.promises.readFile("f1.txt");
 // /***************1.& 2**************/
@@ -66,6 +66,7 @@
  *  * 1. finally is an eventlistener/subscriber  attached to  a promise it's cb will 
  * exceute whether your promise is rejected or resolved 
  * 2. you can attach multiple finally to a given promise and every one will execute 
+ * Observation : 
  * 3. finally's cb will not take accept in arguments
  * 4. finally will not do error handling
  * ***************************/
@@ -93,7 +94,7 @@
 
 /***
  * Note :If a rejected promise -> 
- * if not caught will be converted into  an error and code stops execution
+ * is not caught will be converted into  an error and code stops execution
  * 
  * Learning : always catch your promise
  * */
@@ -131,15 +132,12 @@
 //     .then(function (data) {
 //         console.log("1 " + data);
 //     })
-
-
 /**********************Promise is rejected****************************************************
  * Different ways in which you can get a rejected promise 
  * 1. Promise.reject
  * 2. Getting a rejected promise from a promise based fn 
  * 3. throw new Error from then/catch
     *********/
-
 /*******************1.********************/
 // Promise.reject("sending rejected err")
 //     .catch(function (err) {
