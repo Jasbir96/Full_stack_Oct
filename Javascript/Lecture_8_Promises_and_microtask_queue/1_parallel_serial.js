@@ -55,27 +55,27 @@ const fs = require("fs");
 
 // console.log("before");
 
-// fs.readFile("./f1.txt", "utf-8", function (err, content1) {
-//     if (err) {
-//         console.log(err)
-//     } else {
-//         console.log(content1);
-//         fs.readFile("./f2.txt", "utf-8", function (err, content2) {
-//             if (err) {
-//                 console.log(err);
-//             } else {
-//                 console.log(content2);
-//                 fs.readFile("./f3.txt", "utf-8", function (err, content3) {
-//                     if (err) {
-//                         console.log(err)
-//                     } else {
-//                         console.log("TOtal content of all three files ", content1 + " " + content2 + " " + content3)
-//                     }
-//                 })
-//             }
-//         })
-//     }
-// })
+fs.readFile("./f1.txt", "utf-8", function (err, content1) {
+    if (err) {
+        console.log(err)
+    } else {
+        console.log(content1);
+        fs.readFile("./f2.txt", "utf-8", function (err, content2) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(content2);
+                fs.readFile("./f3.txt", "utf-8", function (err, content3) {
+                    if (err) {
+                        console.log(err)
+                    } else {
+                        console.log("TOtal content of all three files ", content1 + " " + content2 + " " + content3)
+                    }
+                })
+            }
+        })
+    }
+})
 // console.log("After");
 
 /****
@@ -114,4 +114,22 @@ const fs = require("fs");
 // });
 
 // console.log("After ");
+
+
+
+//  Lecture 7: H1 - Two Files in Series-> 
+//  Lecture 7 H2: n files in series -> recursive 
+
+// function fn(arr, idx) {
+//     if (idx == arr.length) {
+//         return
+//     }
+//     fs.readFile(arr[idx], function () {
+
+//         fn(arr, idx + 1)
+//     })
+// }
+
+
+
 
