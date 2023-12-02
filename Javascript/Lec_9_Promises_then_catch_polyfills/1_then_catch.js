@@ -97,12 +97,37 @@
  * 
  * Learning : always catch your promise
  * */
- let fs = require("fs");
- let promise = fs.promises.readFile("f11.txt");
+//  let fs = require("fs");
+//  let promise = fs.promises.readFile("f11.txt");
 
-promise.finally(function () {
-    console.log("I am not accepting");
-console.log("I will not exceute");
-}).catch((function(err){
-console.log("I have saved you all TIL"+err)
-}))
+// promise.finally(function () {
+//     console.log("I am not accepting");
+// console.log("I will not exceute");
+// }).catch((function(err){
+// console.log("I have saved you all TIL"+err)
+// }));
+
+
+
+/**********************Promise is resolved****************************************************
+ //  resolving  -> something has went right
+ * Different ways in which you can get a resolved promise 
+ * 1. Promise.resolve
+ * 2. Getting a resolved value from a promise based fn 
+ *
+ * *****************/
+
+/*******************1.********************/
+Promise.resolve(100)
+    .then(function (data) {
+        console.log("1", data)
+    })
+
+/*************2.****************************************/
+const fs = require("fs");
+//  assuming f1 files is present and has content of I am F1   
+let rfIlePromise = fs.promises.readFile("f1.txt");
+rfIlePromise
+    .then(function (data) {
+        console.log("1 " + data);
+    })
