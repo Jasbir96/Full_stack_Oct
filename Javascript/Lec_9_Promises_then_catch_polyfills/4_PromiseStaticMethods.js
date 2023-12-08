@@ -8,8 +8,6 @@
 // Promise.withresolver()
  *  */
 
-
-
 /***************
  * Promise.all
     * Input :

@@ -50,8 +50,8 @@
 //     console.log("name of error: ", err.name);
 // }
 // console.log("After try catch"); 
-
 /**correct way of using**/
+
 console.log("Before");
 try {
     setTimeout(() => {

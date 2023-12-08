@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Modules</h1>
+    <!-- 
+ when we have multiple script files
+* all of them work as  a common script file
+*  if a fn or variable/fn is declard in the one script
+    then that var/fn  can be accessed
+Issues :
+1. order is important-> to maintain order network 
+2. a lot of scope pollution 
+3. there is no abstraction as well
+     -->
+    <!-- <script src="./lib.js"></script> -->
+    <!-- <script src="client.js"></script> -->
+    <!--
+    Modules
+    1. There no conecpts of order -> export and import + network=> deffered 
+    2. there no scope pollution because acces of the var and fnsare file level
+    3. you can implement abstraction  -> export and import
+    Extra features
+        1. it is in strict mode 
+        2. it is cached
+  -->
+
+  <script>
+    
+  </script>
+    <script src="./library_module.js" type="module" ></script>
+    <script src="./client_module.js" type="module"></script>
+    <script src="./client_module1.js" type="module"></script>
+</body>
+
+</html>

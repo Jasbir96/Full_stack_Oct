@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Queues example</h1>
+    <!-- 1. synchronous code  -->
+    <!-- 2. Async task -->
+    <!-- a.  cb based async function /e.listener -->
+    <!-- b. promisebased cbs -->
+    <!-- c. requestAnimationFrame -> it exceutes js code just before every render  -->
+
+
+    <script>
+        /*********1. synchronous code *****/
+        console.log('A sync stack');
+        /****************2. async -> cb based fn/e.listner
+         * queue -> callback queue/ task queue
+         * ******************/
+        setTimeout(() => {
+            console.log("C task queue")
+        }, 0);
+
+        /*****************3. Promise based code 
+         * queue -> microtaskQueue
+         * ****************/
+        Promise.resolve().then(function () {
+            console.log("D microtask queue");
+        })
+        queueMicrotask(function () {
+            console.log('D microtask');
+        });
+
+        requestAnimationFrame(function (){
+            console.log("R animation queue")
+        });
+        /******************1. synchronous code *****************/
+        console.log('F sync stack');
+        // sync code> microtask queue >cb queue~= requestanimationFrame cb 
+    </script>
+
+</body>
+
+</html>

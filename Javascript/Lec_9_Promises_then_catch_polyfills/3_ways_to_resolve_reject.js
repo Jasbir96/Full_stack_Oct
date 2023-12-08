@@ -102,7 +102,6 @@ const fs = require("fs");
 //     }).then(function (data) {
 //         console.log("2 " + data);  // 2 i am resolved value returned by first then
 //     })
-
 /**********************Promise is rejected****************************************************
  * Different ways in which you can get a rejected promise 
  * 1. Promise.reject
