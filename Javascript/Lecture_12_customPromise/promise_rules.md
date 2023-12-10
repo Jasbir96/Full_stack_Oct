@@ -24,3 +24,5 @@
 * ALl the consumer function : then , catch and finally behaves like  event listeners
 * cbs of these consumer functions are asynchronously called 
 * Promise is synchronous 
+
+Promise specification : https://promisesaplus.com/
