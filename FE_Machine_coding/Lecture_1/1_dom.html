@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> Dom Example</h1>
+
+    <h2>I am heading</h2>
+    <h3>I am heading</h3>
+    <div>
+        <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, delectus enim a voluptatibus
+            adipisci fuga quasi veritatis corrupti magnam nobis accusantium excepturi aspernatur et maiores pariatur
+            cumque! Ad, similique exercitationem.</p>
+        <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, delectus enim a voluptatibus
+            adipisci fuga quasi veritatis corrupti magnam nobis accusantium excepturi aspernatur et maiores pariatur
+            cumque! Ad, similique exercitationem.</p>
+        <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, delectus enim a voluptatibus
+            adipisci fuga quasi veritatis corrupti magnam nobis accusantium excepturi aspernatur et maiores pariatur
+            cumque! Ad, similique exercitationem.</p>
+    </div>
+    <input type="text">
+    <input type="password" id="special">
+    <input type="text">
+
+    <script>
+        /*** *
+         * DOM API :
+                            document        object      model
+ *                          //file.html     node        generic tree
+
+ document : is an object representing webpage in the current tab
+         *
+         */
+
+        /*****read****/
+        // query selector :
+        // const headinElement = document.querySelector("h1");
+        // console.log(headinElement)
+        // const passwordInput = document.querySelector("input[type='password']");
+        // console.log(passwordInput);
+
+        /*******************
+         * when you select using these methdos.
+         * 1. NodeList : Array like list
+         *      * forEach is present
+         * 2. HTML collection : Array like list
+         *      * forEach
+         *
+         * ************************/
+
+        // querySelectorAll :
+        // const pArr = document.querySelectorAll("p");
+        // console.log(pArr)
+        // pArr.forEach((node) => {
+        //     console.log(node);
+        // })
+        // for(let i=0;i<pArr.length;i++){
+        //     console.log(pArr[i]);
+        // }
+
+        // const paraList = document.getElementsByClassName("para");
+        // console.log(paraList)
+        // paraList.forEach((elem) => {
+        //     console.log(elem);
+        // })
+        /***
+         * How to convert HTML collection/ node list to an array
+         * */
+
+        // const arr = Array.from(paraList);
+        // console.log(arr);
+        /***
+         * difference b/w nodelist and htmlcollection
+         * 1. node List : 
+         *  * is a static list
+         *  * forEach is available
+         *  * it repersent every node :comment , text ,element
+         * 2. htmlcollection : 
+         * * it is a live  list
+         * * does not have a forEach
+         * * it represent on elements 
+         * 
+         * **/
+
+        let paraList = document.getElementsByClassName("para");
+        const div = document.querySelector("div");
+        console.log(paraList, paraList.length);
+        /****element creation **/
+        const pTag = document.createElement("p");
+        pTag.innerText = "I am added with the help of js";
+        pTag.setAttribute("class", "para");
+        /********/
+        div.appendChild(pTag);
+        console.log("``````````")
+        console.log(paraList);
+/***
+         * 1. four ways to read in dom
+         * a. query Selector : selectors , first element
+         * b. getElementByid: idName, first element matching that id
+          * c. querySelectorAll : selectors , nodelist
+         * d. getElementsByTag : tagName, HTMLcollection
+         * e. getElementsByClassName : className, HTMLcollection
+         * **/
+
+
+    </script>
+
+
+</body>
+
+</html>
