@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF - 8" />
+    <meta http-equiv="X - UA - Compatible" content="IE = edge" />
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+
+    </ul>
+    <!-- you have to add missing element -->
+    <script>
+        const ul = document.querySelector("ul");
+        const liList = document.querySelectorAll("li");
+        //   1. create the element
+        const li = document.createElement("li");
+        // 2. add attributes
+        li.textContent = 7;
+        //  3. append it to the ui
+        ul.insertBefore(li,liList[6])
+
+    </script>
+</body>

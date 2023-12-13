@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>click Me </button>
+    <input type="text">
+    <ul></ul>
+    <script>
+
+        const button = document.querySelector("button");
+        const ul = document.querySelector("ul");
+        const input = document.querySelector("input");
+        console.log("before");
+
+        button.addEventListener("click", function handler() {
+            // content from input
+            const value = input.value;
+            if (!value) {
+                alert("empty task can't be added");
+                return;
+            }
+            // create li ,
+            const li = document.createElement("li");
+            li.innerText = value;
+            //  add it to the ui 
+            const allLis = document.querySelectorAll("li");
+            if (allLis.length==0){
+                ul.appendChild(li)
+            } else {
+                ul.insertBefore(li, allLis[0]);
+            }
+
+              
+            input.value = ""
+
+        })
+        console.log("After");
+
+    </script>
+</body>
+
+</html>

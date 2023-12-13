@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Adding multiple elements</h1>
+    <button>add 1000 lis</button>
+    <ul></ul>
+    <script>
+        const ul = document.querySelector("ul");
+        // bad solution
+        // for (let i = 0; i < 1000; i++) {
+        //     const li = document.createElement("li");
+        //     // 2. add attributes
+        //     li.textContent = "task elemns"
+        //     // add all the element in a batch
+        //     ul.appendChild(li);
+        // }
+        // optimized version 
+         let fragment = document.createDocumentFragment();
+            for (let i = 0; i < 10000; i++) {
+                const li = document.createElement("li");
+                li.textContent = `I am ${i + 1}`;
+                fragment.appendChild(li);
+            }
+            // 1 re-render will be required 
+            ul.appendChild(fragment);
+
+    </script>
+</body>
+
+</html>
