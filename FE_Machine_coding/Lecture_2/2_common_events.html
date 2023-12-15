@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: lightcoral;
+            border: 1px solid green;
+            height: 10rem;
+            width: 10rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+diffrent ways interact with a webpage 
+* Mouse :click, mousedown, mouseup, dbclick, mouseover
+* keyboard : key pressed 
+     -->
+
+    <div class="box"></div>
+
+
+    <script>
+
+        /****************************Mouse*********************************/
+        const box = document.querySelector(".box");
+        // hover
+        // box.addEventListener("mouseover", () => {
+        //     console.log("hover occurred");
+        // })
+        // click ->  mousedown+mouseup
+        // box.addEventListener("mousedown", () => {
+        //     console.log("mousedown occurred");
+        // })
+        // box.addEventListener("mouseup", () => {
+        //     console.log("mouseup occurred");
+        // })
+        // box.addEventListener("click", function () {
+        //     console.log("click happened");
+        // });
+        /*****use case of mouseup and click***/
+        const cb1 = (obj) => {
+            console.log("mousedown occurred");
+            // console.log("mouse down", obj);
+            const sx = obj.clientX;
+            const sy = obj.clientY;
+            console.log("sx", sx, "sy", sy);
+        }
+        const cb2 = (obj) => {
+            console.log("mouseup occurred");
+            // console.log("mouse down", obj);
+            const sx = obj.clientX;
+            const sy = obj.clientY;
+            console.log("sx", sx, "sy", sy);
+        }
+        const cb3 = (obj) => {
+            console.log("click occurred");
+            // console.log("mouse down", obj);
+            const sx = obj.clientX;
+            const sy = obj.clientY;
+            console.log("sx", sx, "sy", sy);
+        }
+
+        box.addEventListener("mousedown", cb1);
+        box.addEventListener("mouseup", cb2);
+        box.addEventListener("click", cb3);
+
+    </script>
+</body>
+
+</html>

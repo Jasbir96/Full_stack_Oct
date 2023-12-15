@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ways to add Event Listener</title>
+    <style>
+        .box {
+            background-color: lightcoral;
+            border: 1px solid green;
+            height: 10rem;
+            width: 10rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <button>click Me </button>
+    <input type="text">
+    <ul></ul> -->
+
+    <div class="box"></div>
+
+    <script>
+        "use Strict;"
+        const box = document.querySelector(".box");
+
+        /**
+         * Ways to add Event listener
+         * 1. inline 
+         * 2. addEventListeners
+         * **/
+
+        /****inline listener*/
+        //   box.onclick = function () {
+        //     alert("I was clicked");
+        // }
+        //   box.onclick = function () {
+        //         alert("I was replaced");
+        //     }
+
+        /****Add Event listener**/
+        const cb1 = function () {
+            alert("I was clicked");
+        }
+        const cb2 = function () {
+            alert("I was replaced");
+              box.removeEventListener("click", cb1);
+        }
+        // add event Listner        
+        box.addEventListener("click", cb1);
+        box.addEventListener("click", cb2);
+
+        /******Adding listener once***/
+        // const button = document.querySelector("button");
+        // const ul = document.querySelector("ul");
+        // const input = document.querySelector("input");
+        // button.addEventListener("click", function handler() {
+        //     // content from input
+        //     const value = input.value;
+        //     if (!value) {
+        //         alert("empty task can't be added");
+        //         return;
+        //     }
+        //     // create li ,
+        //     const li = document.createElement("li");
+        //     li.innerText = value;
+        //     //  add it to the ui 
+        //     const allLis = document.querySelectorAll("li");
+        //     if (allLis.length == 0) {
+        //         ul.appendChild(li)
+        //     } else {
+        //         ul.insertBefore(li, allLis[0]);
+        //     }
+
+        //     // li.addEventListener("click", function cb() {
+        //     //     li.remove();
+        //     // }, { once: true });
+
+        //     input.value = ""
+
+        // })
+        // console.log("After");
+
+        /***remove event Listener**/
+        /***
+         * 1. event should be added with the help of addEventListener
+         * 2. cb functio should be a named fn 
+         * */ 
+        // box.removeEventListener("click",cb1);
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
