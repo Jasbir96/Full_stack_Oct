@@ -23,13 +23,13 @@ diffrent ways interact with a webpage
 * keyboard : key pressed 
      -->
 
-    <div class="box"></div>
-
+    <!-- <div class="box"></div> -->
+    <input type="text">
 
     <script>
 
         /****************************Mouse*********************************/
-        const box = document.querySelector(".box");
+        // const box = document.querySelector(".box");
         // hover
         // box.addEventListener("mouseover", () => {
         //     console.log("hover occurred");
@@ -45,31 +45,48 @@ diffrent ways interact with a webpage
         //     console.log("click happened");
         // });
         /*****use case of mouseup and click***/
-        const cb1 = (obj) => {
-            console.log("mousedown occurred");
-            // console.log("mouse down", obj);
-            const sx = obj.clientX;
-            const sy = obj.clientY;
-            console.log("sx", sx, "sy", sy);
-        }
-        const cb2 = (obj) => {
-            console.log("mouseup occurred");
-            // console.log("mouse down", obj);
-            const sx = obj.clientX;
-            const sy = obj.clientY;
-            console.log("sx", sx, "sy", sy);
-        }
-        const cb3 = (obj) => {
-            console.log("click occurred");
-            // console.log("mouse down", obj);
-            const sx = obj.clientX;
-            const sy = obj.clientY;
-            console.log("sx", sx, "sy", sy);
-        }
+        // const cb1 = (obj) => {
+        //     console.log("mousedown occurred");
+        //     // console.log("mouse down", obj);
+        //     const sx = obj.clientX;
+        //     const sy = obj.clientY;
+        //     console.log("sx", sx, "sy", sy);
+        // }
+        // const cb2 = (obj) => {
+        //     console.log("mouseup occurred");
+        //     // console.log("mouse down", obj);
+        //     const sx = obj.clientX;
+        //     const sy = obj.clientY;
+        //     console.log("sx", sx, "sy", sy);
+        // }
+        // const cb3 = (obj) => {
+        //     console.log("click occurred");
+        //     // console.log("mouse down", obj);
+        //     const sx = obj.clientX;
+        //     const sy = obj.clientY;
+        //     console.log("sx", sx, "sy", sy);
+        // }
 
-        box.addEventListener("mousedown", cb1);
-        box.addEventListener("mouseup", cb2);
-        box.addEventListener("click", cb3);
+        // box.addEventListener("mousedown", cb1);
+        // box.addEventListener("mouseup", cb2);
+        // box.addEventListener("click", cb3);
+
+        /*******key board **/
+        // const input = document.querySelector("input");
+        // input.addEventListener("keydown", function () {
+        //     console.log("Key down called");
+        // })
+        // input.addEventListener("keyup", function () {
+        //     console.log("keyup called");
+        // })
+
+        // input.addEventListener("keypress", cb);
+
+        // function cb(eventobj) {
+        //     // console.log("key press was called")
+        //     console.log(eventobj.key);
+        // }
+
 
     </script>
 </body>

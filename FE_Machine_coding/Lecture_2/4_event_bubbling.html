@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+    <style>
+        div[id] {
+
+            border: 1px solid red;
+        }
+
+        #outer_box {
+            height: 10rem;
+            width: 10rem;
+            background-color: lightblue;
+        }
+
+        #inner_box {
+            height: 50%;
+            width: 50%;
+            background-color: lightgreen;
+            margin-top: 10px;
+        }
+
+        #button {
+            margin-top: 3px;
+            background-color: lightsalmon;
+            width: 50%;
+            margin-left: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Event Bubbling</h1>
+    <div id="outer_box">
+        <div id="inner_box">
+            <div id="button">Click Me </div>
+        </div>
+    </div>
+    <script>
+
+        /**
+            * Event bubbling : when an event happens on an element
+            * then that event travels up from itself to the document via 
+            * all the ancestor elements
+            * Disclamer: you should avoid the preventing bubbling
+            *   1. event.stopPropogation 
+         *      2. event.stopImmediatePropogation
+         * 
+         *  e.target : on the element which event has occurred 
+         * e.currentTarget : on the element on which handler is added
+           * */
+        const outerBox = document.querySelector("#outer_box")
+        const innerBox = document.querySelector("#inner_box")
+        const button = document.querySelector("#button");
+        const body = document.body;
+
+        button.addEventListener("click", function (e) {
+            console.log("button was clicked");
+            console.log("target", e.target)
+            console.log("currentTarget", e.currentTarget);
+            console.log("``````````````````````")
+        })
+        innerBox.addEventListener("click", function (e) {
+            console.log("innerBox was clicked");
+            console.log("target", e.target)
+            console.log("currentTarget", e.currentTarget);
+            console.log("``````````````````````")
+            // // e.stopPropagation();
+            // e.stopImmediatePropagation();
+        })
+        // innerBox.addEventListener("click", function () {
+        //     console.log("``````````````");
+        //     console.log("another inputbox listener "); 
+        // })
+
+       
+
+        outerBox.addEventListener("click", function (e) {
+            console.log("outerbox was clicked");
+            console.log("target", e.target)
+            console.log("currentTarget", e.currentTarget);
+            console.log("``````````````````````")
+        })
+
+        outerBox.addEventListener("mouseover", function (e) {
+            console.log("outerbox was hovered");
+            console.log("target", e.target)
+            console.log("currentTarget", e.currentTarget);
+            console.log("``````````````````````")
+            // // e.stopPropagation();
+            // e.stopImmediatePropagation();
+        })
+        // body.addEventListener("click", function () {
+        //     console.log("body  was clicked");
+        // })
+
+    </script>
+</body>
+
+</html>
