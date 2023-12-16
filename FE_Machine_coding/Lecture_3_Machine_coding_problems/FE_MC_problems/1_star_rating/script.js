@@ -22,6 +22,7 @@
 const starContainer = document.querySelector("#star_container");
 const countElement = document.querySelector("#count");
 const starArr = document.querySelectorAll(".star");
+let pidx = 0;
 
 starContainer.addEventListener("click", function (e) {
     // console.log("click occured");
@@ -34,9 +35,24 @@ starContainer.addEventListener("click", function (e) {
     // update color till that idx 
     fillcolors(idx);
     countElement.textContent = idx;
+    pidx = idx;
 })
 
-
+starContainer.addEventListener("mouseover", function (e) {
+    if (e.target == starContainer)
+        return;
+    // get the idx of your star
+    const cStar = e.target;
+    const idx = cStar.dataset.idx;
+    // update color till that idx 
+    fillcolors(idx);
+    // console.log("hover occured");
+})
+starContainer.addEventListener("mouseleave", function () {
+    fillcolors(pidx);
+})
+// DRY principle -> do not repeat yourself
+// SRP -> single responsibilit principle
 function fillcolors(idx) {
     // update color till that idx 
     // reset the colors
@@ -49,19 +65,6 @@ function fillcolors(idx) {
     }
 }
 
-
-
-
-
-
-// starContainer.addEventListener("mouseover", function () {
-
-//     // console.log("hover occured");
-// })
-
-// starContainer.addEventListener("mouseleave", function () {
-//     console.log("leave occurred");
-// })
 
 
 
