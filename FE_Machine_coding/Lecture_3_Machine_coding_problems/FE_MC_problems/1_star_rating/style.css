@@ -1,0 +1,17 @@
+.star-rating {
+    display: grid;
+    place-items: center;
+}
+.star-rating__stars {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    border: 1px solid red;
+}
+.star {
+    font-size: 2rem;
+    color: gray;
+}
+.yellow {
+    color: yellow
+}

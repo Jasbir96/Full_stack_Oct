@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div[id] {
+
+            border: 1px solid red;
+        }
+
+        #outer_box {
+            height: 10rem;
+            width: 10rem;
+            background-color: lightblue;
+        }
+
+        #inner_box {
+            height: 50%;
+            width: 50%;
+            background-color: lightgreen;
+            margin-top: 10px;
+        }
+
+        #button {
+            margin-top: 3px;
+            background-color: lightsalmon;
+            width: 50%;
+            margin-left: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Event Capture</h1>
+
+    <form id="form">
+        <label>
+            Some text:
+            <input type="text" placeholder="text input" />
+        </label>
+
+        <label>
+            Password:
+            <input type="password" placeholder="password" />
+        </label>
+    </form>
+    <script>
+        const textInput = document.querySelector("input[type='text']");
+        const passwordInput = document.querySelector("input[type='password']");
+        const form = document.querySelector("#form");
+
+        textInput.addEventListener("focus", function (e) {
+            console.log("event on textInput");
+        })
+        passwordInput.addEventListener("focus", function (e) {
+            console.log("focus on pasword input");
+        })
+        /***
+            * 1.you have to icrease padding of all the input when any of th
+            *  inputs are focused
+            * 2. you can only add one event listener
+            *
+            * */
+        // -> capture
+        form.addEventListener("focus", function (e) {
+            console.log(e.target, )
+            e.target.style.backgroundColor = "red";
+        }, { capture: true })
+
+
+
+    </script>
+</body>
+
+</html>

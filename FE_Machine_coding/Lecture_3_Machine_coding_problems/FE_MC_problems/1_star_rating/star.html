@@ -1,0 +1,96 @@
+<!--
+Problem statement : star component
+
+## Requirement
+Que What are the features that we want in that component:
+
+Must Have features
+* Rating from 1 to 5 
+* when click -> rating should appear 
+    : count should be printed
+    : stars should be highlighted
+* on hover -> highlight the stars
+* on mouse leave -> highlisghted stars should track back to 
+previous state 
+
+Good to have features->optimization , accessibility
+* put emojis instead of numbers
+* slider based star rating
+  -->
+
+<!-- 
+    Steps to create a component
+    1. create DUMMY UI
+        a. structure
+        b. styling -> do not focus on styling
+
+    2. different point of interactions
+            1. select elements -> that will change / cause changes
+            2. add all the listeners
+                click 
+                mouse hover 
+                mouse leave 
+    3. Write the logic in  your handler functions 
+    4. refractor the code to use DRY and if there are any optimizations
+    Bonus : talk optimization you can do , accessible 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- <h1>Star Rating component</h1>
+    <div class="container">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+    <h2>Rating Count <span>4</span></h2> -->
+
+
+    <!-- **BEM stands for Block, Element, Modifier:**
+    
+    - **Block:** It is the independent unit . It's a self-contained element with its own purpose and styling. In code, it's
+    a class name like `star-rating`.
+    
+    - **Element:** These are smaller bricks that make up the block, . They exist inside the block and inherit its basic
+    styles. In code, they're classes like `star-rating__stars` or `star-rating__star`.
+    
+    - **Modifier:** These are accessories that adds variations or specific states. They change the block or element
+    slightly, In code, they use dashes and descriptive words like `star-rating__star--active` or `star-rating--disabled`. -->
+
+    <!-- block -->
+    <div class="star-rating">
+        <!-- elements  -->
+        <h1 class="star-rating__title">Star Rating Component</h1>
+        <!-- elements -->
+        <div class="star-rating__stars" id="star_container">
+            <div class="star" data-idx="1">&#9733;</div>
+            <div class="star" data-idx="2">&#9733;</div>
+            <div class="star" data-idx="3">&#9733;</div>
+            <div class="star" data-idx="4">&#9733;</div>
+            <div class="star" data-idx="5">&#9733;</div>
+        </div>
+        <!-- element -->
+        <h2 class="star-rating__rating">
+            Rating count: <span id="count">0</span>
+        </h2>
+        <script src="script.js"></script>
+    </div>
+
+
+
+</body>
+
+</html>
