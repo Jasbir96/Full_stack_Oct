@@ -11,13 +11,12 @@ const resetBtn = document.getElementById("reset");
 const minInput = document.getElementById("min");
 const hrsInput = document.getElementById("hr");
 const secInput = document.getElementById("sec");
-
-
 /***
  * 
  * add all the listener
   * */
 let timeLeft = 0;
+let countId;
 startBtn.addEventListener("click", function () {
     console.log("start was clicked");
 
@@ -43,53 +42,95 @@ startBtn.addEventListener("click", function () {
     mins = parseInt(mins);
     hrs = parseInt(hrs);
     secs = parseInt(secs);
+
+    // validation 
     // console.log("mins", mins, "hrs", hrs, "secs", secs);
-    timer(hrs, mins, secs);
+
+    // * validation
+    //     * Negative values.
+    // * extra time they can enter
+    // * Hours should not be greater than 24 hours.
+    // 
+    //     * input can only be numbers
+    const res = validatedInputs(mins, hrs, secs);
+    if (res == false)
+        return;
+        // tranform our input for first render
+    const { transformedSecs,
+        transformedMins,
+        transformedHrs
+    } = tranformInputs(secs, mins, hrs);
+    // console.log(transformedSecs, transformedMins, transformedHrs);
+// running the timer 
+    timer(transformedHrs, transformedMins, transformedSecs);
 })
+
+function tranformInputs(secs, mins, hrs) {
+    // /handle seconds
+    if (secs >= 60) {
+        secs = secs - 60;
+        mins++;
+    }
+    if (mins >= 60) {
+        mins = mins - 60;
+        hrs++;
+    }
+    return {
+        transformedSecs: secs,
+        transformedMins: mins,
+        transformedHrs: hrs
+    };
+}
+
 
 function timer(hrs, mins, secs) {
     // transforming -> into seconds
     let countDownTime = hrs * 3600 + mins * 60 + secs;
-    timeLeft = countDownTime
-    let countId = setInterval(() => {
-        console.log(timeLeft);
+    timeLeft = countDownTime;
+    // updateUI(timeLeft);
+    // initial render and then update your timer 
+    hrsInput.value = hrs;
+    minInput.value = mins;
+    secInput.value = secs;
+    countId = setInterval(() => {
         timeLeft--;
-        if (timeLeft == -1) {
-            clearInterval(countId);
-            return;
-        }
         updateUI(timeLeft);
     }, 1000);
+
+
 }
 
+// specifically -> to update the UI
 function updateUI(timeLeft) {
     // -> transform the input ui 
-
     let hrs = Math.floor(timeLeft / 3600);
-
     let mins = Math.floor((timeLeft % 3600) / 60);
     let secs = timeLeft % 60;
     console.log("hrs", hrs, "mins", mins, "secs", secs);
+    // if time has ran out 
+    if (timeLeft == 0) {
+        // console.log("Timer Finished");
+        // stop the timer
+        clearInterval(countId);
+        return;
+    }
+    // when secs are there update secs and return
     if (secs > 0) {
-        if (sec == 59) {
-            minInput.value = mins < 10 ? `0${mins}` : `${mins}`;
-            hrsInput.value = mins < 10 ? `0${mins}` : `${mins}`;
-        }
         secs--;
         // 10 -> 9
         secInput.value = secs < 10 ? `0${secs}` : `${secs}`;
         return;
     }
 
+    // when mins are there -> decrement  the mins and set secs to 59
     if (mins > 0) {
-        if (sec == 59) {
-            hrs.value = mins < 10 ? `0${mins}` : `${mins}`;
-        }
         mins--;
         secInput.value = 59;
         minInput.value = mins < 10 ? `0${mins}` : `${mins}`;
         return;
     }
+
+    // mins, secs -> 0 , update your hrs, mins and secs
     if (hrs > 0) {
         hrs--;
         minInput.value = 59;
@@ -97,6 +138,21 @@ function updateUI(timeLeft) {
         hrsInput.value = hrs < 10 ? `0${hrs}` : `${hrs}`
     }
 }
+
+
+
+
+
+function validatedInputs(mins, hrs, secs) {
+
+    //   a. checked for neg 
+    if (mins < 0 || secs < 0 || hrs < 0) {
+        alert("negative value's / hrs >24 is not valid");
+        return false;
+    }
+    return true;
+}
+
 
 
 

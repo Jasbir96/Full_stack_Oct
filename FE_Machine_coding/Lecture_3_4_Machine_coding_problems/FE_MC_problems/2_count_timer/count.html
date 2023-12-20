@@ -13,10 +13,11 @@
 <body>
     <!-- 
 Problem statement : count down timer
+
 Must Have 
 *  time in hours , minute and second
-* start , pause , continue
-* it should not go negative when time runs out -> 0:0:0
+* start , pause , continue feature
+* timer should  not go show negative  when time runs out -> 0:0:0
  
 Good to Have features
 * reset 
@@ -26,34 +27,40 @@ Good to Have features
     * min/sec -> 60 
     * input can only be numbers
 * alert on timer finish
-
-* Accessibility
+Accessibility
+* 
 
  -->
+
+
+    <!--
+
+ Accessibility: screen reader and more keyboard use
+    * Semantic
+        * ul, li , input, label , semantic tags
+    * aria-(labels): whatever you are not able to convey with the help your
+    normal html then aria-labels used 
+   -->
     <div class="countdown-timer">
         <h1>Count Down Timer</h1>
         <!-- BEM convention -->
         <div class="countdown-timer_labels">
-            <h2 class="countdown-timer__label label--hrs">Hours:</h2>
-            <h2 class="countdown-timer__label label--mins">Minutes:</h2>
-            <h2 class="countdown-timer__label label--sec">Second:</h2>
+            <label for="hr" class="countdown-timer__label label--hrs">Hours:</label>
+            <label for="min" class="countdown-timer__label label--mins">Minutes:</label>
+            <label for="sec" class="countdown-timer__label label--sec">Seconds:</label>
         </div>
         <!-- all the inputs are upto of 2 digits  -->
         <div class="countdown-timer__inputs">
-            <input type="number" maxlength="2"
-             id="hr" placeholder="00"
-             oninput="this.value=this.value.slice(0,this.maxLength)"
-             >
+            <input type="number" maxlength="2" id="hr" placeholder="00"
+
+                oninput="this.value=this.value.slice(0,this.maxLength)" 
+                aria-live="assertive">
             <span>:</span>
-            <input type="number" maxlength="2" 
-            id="min" placeholder="00"
-            oninput="this.value=this.value.slice(0,this.maxLength)"
-            >
+            <input type="number" maxlength="2" id="min" placeholder="00"
+                oninput="this.value=this.value.slice(0,this.maxLength)" aria-live="assertive">
             <span>:</span>
-            <input type="number" maxlength="2"
-             id="sec" placeholder="00"
-             oninput="this.value=this.value.slice(0,this.maxLength)"
-             >
+            <input type="number" maxlength="2" id="sec" placeholder="00"
+                oninput="this.value=this.value.slice(0,this.maxLength)" aria-live="assertive">
         </div>
         <div class="countdown-timer__btns">
             <button class="btn btn-start" id="start">Start</button>
