@@ -55,13 +55,18 @@ startBtn.addEventListener("click", function () {
     const res = validatedInputs(mins, hrs, secs);
     if (res == false)
         return;
-        // tranform our input for first render
+    // tranform our input for first render
+    // just tranforming for the first render 
     const { transformedSecs,
         transformedMins,
         transformedHrs
     } = tranformInputs(secs, mins, hrs);
-    // console.log(transformedSecs, transformedMins, transformedHrs);
-// running the timer 
+    console.log(transformedSecs, transformedMins, transformedHrs);
+    // running the timer 
+    hrsInput.value = transformedHrs;
+    minInput.value = transformedMins;
+    secInput.value = transformedSecs;
+
     timer(transformedHrs, transformedMins, transformedSecs);
 })
 
@@ -89,44 +94,47 @@ function timer(hrs, mins, secs) {
     timeLeft = countDownTime;
     // updateUI(timeLeft);
     // initial render and then update your timer 
-    hrsInput.value = hrs;
-    minInput.value = mins;
-    secInput.value = secs;
     countId = setInterval(() => {
+        //23:00:00 -> 22:59:59
         timeLeft--;
         updateUI(timeLeft);
-    }, 1000);
-
-
+    }, 200);
 }
 
 // specifically -> to update the UI
 function updateUI(timeLeft) {
-    // -> transform the input ui 
-    let hrs = Math.floor(timeLeft / 3600);
-    let mins = Math.floor((timeLeft % 3600) / 60);
-    let secs = timeLeft % 60;
-    console.log("hrs", hrs, "mins", mins, "secs", secs);
-    // if time has ran out 
     if (timeLeft == 0) {
         // console.log("Timer Finished");
         // stop the timer
         clearInterval(countId);
         return;
     }
-    // when secs are there update secs and return
+    // -> transform the input ui 
+    // memory level 
+    let hrs = Math.floor(timeLeft / 3600);
+    let mins = Math.floor((timeLeft % 3600) / 60);
+    let secs = timeLeft % 60;
+    console.log("hrs", hrs, "mins", mins, "secs", secs);
+
+    // if time has ran out 
+   
+    //5:00
+    // when secs are there update secs and return //59
     if (secs > 0) {
         secs--;
-        // 10 -> 9
         secInput.value = secs < 10 ? `0${secs}` : `${secs}`;
+        minInput.value = mins < 10 ? `0${mins}` : `${mins}`;
+        hrsInput.value = hrs < 10 ? `0${hrs}` : `${hrs}`;
+        // 10 -> 9
         return;
     }
-
+    
     // when mins are there -> decrement  the mins and set secs to 59
     if (mins > 0) {
         mins--;
         secInput.value = 59;
         minInput.value = mins < 10 ? `0${mins}` : `${mins}`;
+        hrsInput.value = hrs < 10 ? `0${hrs}` : `${hrs}`
         return;
     }
 
@@ -135,7 +143,7 @@ function updateUI(timeLeft) {
         hrs--;
         minInput.value = 59;
         secInput.value = 59;
-        hrsInput.value = hrs < 10 ? `0${hrs}` : `${hrs}`
+        hrsInput.value = hrs < 10 ? `0${hrs}` : `${hrs}`;
     }
 }
 
@@ -144,7 +152,6 @@ function updateUI(timeLeft) {
 
 
 function validatedInputs(mins, hrs, secs) {
-
     //   a. checked for neg 
     if (mins < 0 || secs < 0 || hrs < 0) {
         alert("negative value's / hrs >24 is not valid");
