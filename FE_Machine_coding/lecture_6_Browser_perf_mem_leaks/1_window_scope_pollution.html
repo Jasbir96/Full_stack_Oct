@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    h1 {
+        text-align: center;
+        font-family: sans-serif;
+
+
+    }
+</style>
+
+<body>
+    <h1>scope pollution -> accidental global variables</h1>
+    <script>
+        /***
+         * creating variable
+* no declaration  ->  goes to window object
+* declare using var in GEC -> goes to window object
+* if you use use this normally -> in function call (this will point to window object)
+
+Solution : declare variable using let/const in GEC -> 
+variables will go to script scope 
+         * */
+        // var d = 20;
+        // function abc() {
+        //     c = "Hello";
+        //     // on a fn call -> 
+        //     // this will always be caculated as window object  
+        //     this.d = 100;
+        // }
+        // abc();
+        // console.log("d", d);
+        // console.log("c", c);
+        // console.log("window c ", window.c);
+        // console.log("window d", window.d);
+
+        /*******************************
+         * Solution: 
+         * 1. always use -> useStrict;
+         *      solution : it remove the scope of undeclared variable
+         *                  it also makes this =undefined in fn scope
+         * 2. Do not use this unless it is very important
+        
+         * ****************************/
+        "use strict";
+        let d = 20;
+        function abc() {
+            var c = "Hello";
+            // on a fn call ->
+            // this will always be caculated as window object
+            console.log(this);
+            // this.d = 100;
+            d = 100;
+        }
+          abc();
+        console.log("d", d);
+        // console.log("c", c);
+        // console.log("window c ", window.c);
+        console.log("window d", window.d);
+    </script>
+</body>
+
+</html>
