@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let theThing = null;
+        let replaceThing = function () {
+            let originalThing = theThing;
+            let unused = function () {
+                if (originalThing) {
+                    console.log("hi");
+                };
+            }
+            //  object thhing will be allocated some memory
+            // call number -> -> but on next call  
+            console.log("replaceThing called");
+            theThing = {
+                longStr: new Array(10000000),
+                someMethod: function () {
+                    console.log("Bi");
+                }
+
+            }
+            // thething object will be there  
+        }
+        setInterval(() => {
+            // replace Things
+            replaceThing()
+        }, 1000);
+
+
+    </script>
+
+
+</body>
+
+</html>
