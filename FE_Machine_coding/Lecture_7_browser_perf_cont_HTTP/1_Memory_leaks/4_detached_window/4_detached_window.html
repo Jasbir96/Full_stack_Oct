@@ -1,0 +1,53 @@
+<!-- 
+
+1. Problem is same as out of dom refreence 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="notes">Open Notes</button>
+    <button id="title">Change Title</button>
+    <button id="close">Close Notes</button>
+    <script>
+        // three btns
+        const notesBtn = document.getElementById("notes");
+        const changeBtn = document.getElementById("title");
+        const closeBtn = document.getElementById("close");
+
+        let notesWindow;
+
+        function showNotes() {
+            notesWindow = window.open("./child.html");
+        }
+
+        let slide = 1;
+        function nextSlide() {
+            slide += 1;
+            notesWindow.document.title = 
+            `Slide ${slide}`;
+
+        }
+        function closeNotes() {
+            notesWindow.close();
+            // noteswindow -> something 
+            notesWindow=null;
+           
+        }
+
+// three event listeners 
+        notesBtn.onclick = showNotes;
+        changeBtn.onclick = nextSlide;
+        closeBtn.onclick = closeNotes;
+    </script>
+
+</body>
+
+</html>

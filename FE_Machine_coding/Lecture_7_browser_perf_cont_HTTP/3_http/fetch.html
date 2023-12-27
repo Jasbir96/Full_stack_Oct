@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Example</title>
+</head>
+
+<body>
+    <h1> Fetch Example</h1>
+    <script>
+        /****
+        * Timeline of making requests to backend
+        * 1. Make a request -> forms , anchors -> whole page reload used to happen
+        * 2. AJAX -> making the request to server without reloading the page -> XMLHTTPRequest
+        * 3. fetch -> make request to the backend and it is promise based ;
+        * */
+        // by default -> every request is a get request
+        const reqPromise = fetch("https://jsonplaceholder.typicode.com/posts");
+
+        reqPromise.then((httpPacket) => {
+            console.log(httpPacket);
+            return httpPacket.json();
+        }).then(function (respData) {
+            console.log(respData)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Worker Example: Fibonacci</title>
+</head>
+
+<body>
+    <h1> Complex calculation example</h1>
+    <div>
+        <input type="number" id="fibInput" placeholder="Enter number" />
+        <button id="btn">Calculate Fibonacci</button>
+    </div>
+    <p id="result"></p>
+    <div class="counter">
+        <button id="inc">Increment</button>
+        <p id="count">0</p>
+    </div>
+    <script>
+        const btn = document.getElementById("btn");
+        const input = document.getElementById('fibInput');
+        const incBtn = document.getElementById("inc");
+        const countPara = document.getElementById("count");
+        btn.addEventListener("click", calculateFibNum);
+        function calculateFibNum() {
+            const number = Number(input.value);
+            // console.log(number);
+            // const answer = calculateFibonacci(number);
+
+
+            // Create a new web worker
+            const worker = new Worker('fibworker.js');
+            // sending the message to worker file 
+            worker.postMessage(number);
+            // getting result from worker file 
+            worker.onmessage = function (event) {
+                document.getElementById('result')
+                    .innerText = `Fibonacci(${number}) = ${event.data}`;
+            }
+
+        }
+        // Function to calculate Fibonacci sequence
+        /*********counter code ************/
+        incBtn.addEventListener("click", function () {
+            let prevVal = countPara.innerText;
+            const prevCount = parseInt(prevVal);
+            countPara.innerText = prevCount + 1;
+        });
+    </script>
+</body>
+
+</html>

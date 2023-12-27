@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <!--
+Tasks given a task -> make request on every one second
+as soon as -> data is available 
+-> you have to update the UI
+      -->
+
+    <!-- Learnings
+        Problem :
+            1. we are retrying a thing or doing a task -> we usually add an setInterval
+            2.  if you  forget to clear the interval out and it is doing that operation -> it will keep on doing that operation
+            in this case it is doing complex ui operations even after it has completed it's task
+        Solution : clean the timers on time   
+     -->
+
+
+    <h1>Timer example</h1>
+    <div id="node">Empty</div>
+    <script>
+        const someResource = { name: "Jasbir" };
+        let isDataAvailable = retry();
+        let clearId;
+        // set Interval i am making the request 
+        clearId = setInterval(function () {
+            console.log("Made request");
+            const node = document.getElementById("node");
+            if (isDataAvailable == true) {
+                node.innerHTML = JSON.stringify(someResource);
+                clearInterval(clearId);
+            }
+        }, 1000);
+        // retry -> after some time -> true
+        function retry() {
+            setTimeout(function () {
+                isDataAvailable = true;
+            }, 3500);
+
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure Example</title>
+</head>
+
+<body>
+    <h1>Clourse</h1>
+    <script>
+        function outer() {
+            let arr = new Array(100000);
+            return function (val) {
+                arr.push(val);
+                console.log(arr);
+            }
+        }
+        let innerFN = outer();
+        innerFN(10);
+        innerFN("Hello");
+        innerFN("Hello again");
+        // let obj = {
+        //     abc: innerFN
+        // }
+        // console.log(obj);
+
+        // the array is freed up -> Garbage collected ,
+        //  you loose out to the acces of innereFn
+        innerFN = null;
+
+
+
+    </script>
+
+
+</body>
+
+</html>
