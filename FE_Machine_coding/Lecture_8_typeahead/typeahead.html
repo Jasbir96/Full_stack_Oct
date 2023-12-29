@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Ahead</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 
+# Problem Statement
+
+Must Have 
+* On typing inside the search box , it should suggest related terms
+*  use this api point to fetch the data : 
+https://restcountries.com/v3.1/name/{name}
+
+Good have 
+* Making it peformant
+        * it should avoid unnecessary network call
+* it should persist previously fetched data
+*  user should be able to select one of the options
+* Making our component generic 
+
+Clarification questions
+Que : Do we have any ui in mind -> ??
+Que : What should be the data source
+        * API endpoint  
+        * Emulate an API using setTimeout and array of resulkt
+* min number character -> after which the first search
+should happen
+* should there be any defaults
+     -->
+</head>
+
+<body>
+
+    <div class="autocomplete">
+        <h2>Auto complete</h2>
+        <input type="search" class="search_input" id="search_input">
+        <ul id="suggestion_box" class="suggestion_box"></ul>
+    </div>
+</body>
+
+</html>
