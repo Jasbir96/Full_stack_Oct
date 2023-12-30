@@ -1,0 +1,71 @@
+/* create css variables  */
+:root {
+    --pink: lightpink;
+    --blue: lightblue;
+    --green: lightgreen;
+    --purple: #8e44ad;
+    ;
+    --light: white;
+}
+
+/* ************toolbox_cont **********/
+.toolbox_cont {
+    height: 5rem;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* color pallet and action box */
+
+.toolbox-priority-cont {
+    height: 60%;
+    background-color: #393c3f;
+    width: 18rem;
+    margin-left: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+
+.color {
+    height: 1.5rem;
+    width: 3rem;
+}
+
+.pink {
+    background-color: var(--pink);
+}
+
+.blue {
+    background-color: var(--blue);
+}
+
+.purple {
+    background-color: var(--purple);
+
+}
+
+.green {
+    background-color: var(--green);
+}
+
+
+/* action btn container */
+.action-btn-cont {
+    height: 60%;
+    background-color: var(--light);
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.add-btn,
+.remove-btn {
+    font-size: 1.75rem;
+}
