@@ -14,18 +14,24 @@ const suggestionBox =
     document.getElementById("suggestion_box");
 
 const handleSuggestions = async function (e) {
-    const keyWord = e.target.value;
-    console.log(keyWord)
-    // 2. send the request
-    //  get the req
-    const resp = await getCountries(keyWord);
-    //  transform the res
-    const countryNameArr = resp.map(countryObject => {
-        return countryObject.name.official
-    });
-    console.log(countryNameArr);
-    // 3. populate the list
-    populateList(countryNameArr)
+ 
+        const keyWord = e.target.value;
+        console.log(keyWord)
+        // 2. send the request
+        //  get the req
+        const resp = await getCountries(keyWord);
+        if (resp == "AbortError") {
+            return;
+        }
+        //  transform the res
+        const countryNameArr = resp.map(countryObject => {
+            return countryObject.name.official
+        });
+        console.log(countryNameArr);
+        // 3. populate the list
+        populateList(countryNameArr)
+  
+
 }
 const populateList = function (countryNameArr) {
     if (countryNameArr.length) {
@@ -51,11 +57,10 @@ const populateList = function (countryNameArr) {
     // dom update was only done once 
     suggestionBox.appendChild(fragment);
 
-
 }
 
 
-inputBox.addEventListener("input", debounce(handleSuggestions, 500));
+inputBox.addEventListener("input", handleSuggestions);
 
 
 
