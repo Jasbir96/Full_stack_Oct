@@ -1,4 +1,5 @@
 import getCountries from "./fetchData.js";
+import { debounce } from "./utility.js";
 
 /***
  *   1. get the latest content inside you input
@@ -54,7 +55,7 @@ const populateList = function (countryNameArr) {
 }
 
 
-inputBox.addEventListener("input", handleSuggestions);
+inputBox.addEventListener("input", debounce(handleSuggestions, 500));
 
 
 
