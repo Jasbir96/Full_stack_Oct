@@ -4,7 +4,6 @@
     --blue: lightblue;
     --green: lightgreen;
     --purple: #8e44ad;
-    ;
     --light: white;
 }
 
@@ -28,7 +27,6 @@
     align-items: center;
     justify-content: space-evenly;
 }
-
 
 
 .color {
@@ -68,4 +66,54 @@
 .add-btn,
 .remove-btn {
     font-size: 1.75rem;
+}
+
+
+/* **********main section ***********/
+.main_cont {
+    margin-top: 2rem;
+    display: flex;
+    /* if the horizontal space is not 
+        enough  move the further items to the
+         next row*/
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* creates a gap between every elem
+        row& column wise 2rem;
+        */
+    row-gap: 2rem;
+    column-gap: 1rem;
+    
+}
+
+/* **************ticket Styling **********/
+.ticket-cont {
+    height: 10rem;
+    width: 15rem;
+    background-color: #ecf0f1;
+    position: relative;
+}
+
+.ticket-color {
+    height: 10%;
+}
+
+.ticket-area {
+    height: 7.5rem;
+    padding: 5px;
+    font-size: 1.25rem;
+}
+
+.ticket-id {
+    height: 0.75rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding-left: 10px;
+}
+
+.lock-unlock {
+    font-size: 1.25rem;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
 }
