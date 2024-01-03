@@ -5,16 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- add there cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- tool bar -->
-    <div class="toolbox_cont">
+    <header class="toolbox_cont">
         <div class="toolbox-priority-cont">
             <div class="color pink"></div>
             <div class="color blue"></div>
@@ -26,28 +23,39 @@
                 <i class="fa-solid fa-plus"></i>
             </div>
             <div class="remove-btn">
-                <!-- icons behaves as text -->
                 <i class="fa-solid fa-trash"></i>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- main -->
-    <div class="main_cont">
-        <div class="ticket-cont">
-            <div class="ticket-color blue"></div>
-            <div class="ticket-id">#Rrc5mZ</div>
-            <div class="ticket-area">another one </div>
-            <div class="lock-unlock">
-                <i class="fa-solid fa-lock"></i>
+
+
+    <main class="main_cont">
+        <div class="heading_cont">
+            <h2 class="task_heading--pending">Pending</h2>
+            <h2 class="task_heading--finished">Finished</h2>
+        </div>
+
+
+        <div class="container_wrapper">
+            <div class="pending-cont container" aria-label="pending Tasks" aria-live="assertive">
+
+            </div>
+            <div class="finished-cont container" aria-label="finished tasks" aria-live="polite">
+
             </div>
         </div>
-    </div>
+    </main>
 
-<!-- modal container (show /hide)-->
+
+
+
+
+
+
+
     <div class="modal-cont">
-        <textarea class="textarea-cont" 
-        placeholder="Enter Your Task"></textarea>
+        <textarea class="textarea-cont" placeholder="Enter Your Task"></textarea>
         <div class="priority-color-cont">
             <div class="priority-color pink"></div>
             <div class="priority-color blue"></div>
@@ -55,9 +63,14 @@
             <div class="priority-color purple "></div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/short-unique-id@4.4.4/dist/short-unique-id.min.js"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="drag_drop.js"></script>
 
-    <script src="script.js" type="module"></script>
+   
 
+    </footer>
 </body>
 
 </html>

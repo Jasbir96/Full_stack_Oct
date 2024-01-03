@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            font-family: sans-serif;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+
+        }
+
+        p {
+            font-size: 2rem;
+        }
+
+        .container {
+            width: 50rem;
+            height: 30rem;
+
+        }
+
+        button {
+            font-size: 2rem;
+            padding: 1rem;
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button id="switch-theme">Switch Theme </button>
+        <h1>Dark and light mode examples</h1>
+
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum sapiente assumenda autem sunt possimus quis
+            maxime nobis quo voluptatibus repellat aliquid odio similique optio est rerum culpa perferendis, fuga sed.
+        </div>
+    </div>
+
+
+
+    <script>
+        const switchTheme = document.querySelector("#switch-theme");
+        const body = document.querySelector("body");
+
+        let defaultTheme;
+
+
+        // 2 this if will run when you have previously saved some value
+        if (localStorage.getItem("theme") != null) {
+            let localtheme = localStorage.getItem("theme");
+           
+            // update the UI
+            if (localtheme == "dark") {
+                // update 
+                body.style.color = "white";
+                body.style.backgroundColor = "black";
+
+            } else {
+                body.style.color = "black";
+                body.style.backgroundColor = "white";
+            }
+             defaultTheme = localtheme;
+        }
+
+        //1
+        switchTheme.addEventListener("click", function () {
+            if (defaultTheme == "dark") {
+                body.style.color = "black";
+                body.style.backgroundColor = "white";
+                defaultTheme = "light";
+            }
+            else {
+                body.style.color = "white";
+                body.style.backgroundColor = "black";
+                defaultTheme = "dark";
+            }
+            // here i will have the final value
+            // key : value -> is always -> a string
+            // //1 store it 
+            localStorage.setItem("theme", defaultTheme);
+        })
+
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- 
+0. when the user visits that page 
+    -> check in the browser whether you have your theme
+    present or not     
+1. whenever user clicks on the switch theme button
+    -> store that current value
+ -->

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Local Storage Example</h2>
+    <ul>
+  
+    </ul>
+    <button id="read">Read</button>
+    <button id="add">Add</button>
+    <script>
+        const readBtn = document.querySelector("#read");
+        const addBtn = document.querySelector("#add");
+        const allLisArr = document.querySelectorAll("li");
+        const ul = document.querySelector("ul");
+
+        readBtn.addEventListener("click", function () {
+            let licontentArr = [];
+            for (let i = 0; i < allLisArr.length; i++) {
+                const licontent = allLisArr[i].innerText;
+                licontentArr.push(licontent);
+            }
+            // everytime -> set Item -> ls
+            let stringArr = JSON.stringify(licontentArr);
+            localStorage.setItem("liitems", stringArr);
+            alert("Read and saved to local storage")
+        })
+
+        addBtn.addEventListener("click", function () {
+            if (localStorage.getItem("liitems") != null) {
+                let stringArr = localStorage.getItem("liitems");
+                // when you read from local storage -> parse
+                let licontentArr = JSON.parse(stringArr);
+                for (let i = 0; i < licontentArr.length; i++) {
+                    let li = document.createElement("li");
+                    li.innerText = licontentArr[i];
+                    ul.appendChild(li);
+                }
+            } else {
+                alert("It is not even in local storage");
+            }
+        })
+
+    </script>
+</body>
+
+</html>

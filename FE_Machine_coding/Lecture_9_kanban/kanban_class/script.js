@@ -7,7 +7,7 @@
 const allTickets = document.getElementsByClassName("ticket-cont");
 const toolBoxPriorityContainer = document.querySelector(".toolbox-priority-cont");
 const addBtn = document.querySelector(".add-btn");
-
+const mainContainer = document.querySelector(".main_cont");
 // modal 
 const modal = document.querySelector(".modal-cont");
 // textarea
@@ -17,9 +17,13 @@ const prioritySetModal = modal.querySelector(".priority-color-cont");
 
 // to make active feature also work
 const priorityColorArray = modal.querySelectorAll(".priority-color");
+
+
+/********************variables*******************************/
+
 let currentColor = "green";
-
-
+const uid = new ShortUniqueId();
+/************************************************************/
 toolBoxPriorityContainer.addEventListener("click", function (e) {
     if (e.target == e.currentTarget) {
         return;
@@ -76,8 +80,6 @@ toolBoxPriorityContainer.addEventListener("dblclick", function (e) {
  * 3. Deletion 
  * */
 
-
-
 /**
  * creation of ticket
  * * Tickets -> life cycle
@@ -130,19 +132,46 @@ modal.addEventListener("keypress", function (e) {
 
 })
 
-function createTicket(value, color) {
-//  *) Adding UI
-//         * -> text, color
-//         * -> id is missing(??)
-//             * -> lock and unlock button 
-//     *    * features -> 
-//  *          * add listeners + 
-//  *         * handlers to implement the different features
-//         * 2. updation
-//            * a.) color
-//            * b.) text
-//          * 3. Deletion 
-    console.log("value", value, "color", color)
+function createTicket(content, color) {
+    //  *) Adding UI
+    //         * -> text, color
+    //         * -> id is missing(??)
+    //             * -> lock and unlock button
+    //     *    * features ->
+    //  *          * add listeners +
+    //  *         * handlers to implement the different features
+    //         * 2. updation
+    //            * a.) color
+    //            * b.) text
+    //          * 3. Deletion
+    // create a static UI with an Id
+    console.log("value", content, "color", color);
+
+
+    if (content == "")
+        return;
+
+    const id = uid.rnd();
+
+    const ticketContainer = document.createElement("div");
+    ticketContainer.setAttribute("class", "ticket-cont");
+    /***
+     * instead of it use document.createElement -> 
+     * because parsing is very slow
+     * **/
+    ticketContainer.innerHTML = `<div class="ticket-cont">
+            <div class="ticket-color ${color}"></div>
+            <div class="ticket-id">#${id}</div>
+            <div class="ticket-area">${content}</div>
+            <div class="lock-unlock">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+        </div>`;
+    mainContainer.appendChild(ticketContainer);
+
+    // delete Feature
+    // update content 
+    // update color
 }
 
 
