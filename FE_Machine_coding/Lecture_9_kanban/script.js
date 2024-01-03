@@ -4,10 +4,20 @@
  *  2. dbClick-> show all the tickets
  * **/
 // live HTML collection
-const allTickets = document
-    .getElementsByClassName("ticket-cont");
-const toolBoxPriorityContainer =
-    document.querySelector(".toolbox-priority-cont");
+const allTickets = document.getElementsByClassName("ticket-cont");
+const toolBoxPriorityContainer = document.querySelector(".toolbox-priority-cont");
+const addBtn = document.querySelector(".add-btn");
+
+// modal 
+const modal = document.querySelector(".modal-cont");
+// textarea
+const textArea = modal.querySelector(".textarea-cont");
+// container -> to get the current color
+const prioritySetModal = modal.querySelector(".priority-color-cont");
+
+// to make active feature also work
+const priorityColorArray = modal.querySelectorAll(".priority-color");
+let currentColor = "green";
 
 
 toolBoxPriorityContainer.addEventListener("click", function (e) {
@@ -43,9 +53,96 @@ toolBoxPriorityContainer.addEventListener("dblclick", function (e) {
     }
 })
 
-
-
-
 /*****
- * Creation of The tickets
- * */ 
+ * Tickets -> life cycle
+ *  1. creation (related UI constrution)
+ *      a. click on plus -> Opening Modal
+ *      b. Take text input + color input[default selection]
+ *      c. Enter is pressed -> 
+ *          *) Modal should disappear
+ *          *) The UI should be created 
+ *              -> text, color
+ *              -> id is missing (??)
+ *              -> lock and unlock button 
+ *      d. hide that modal , empty the content
+ *      Note : On creation you have to add all the features
+ *              related to it's deletion and updation
+ *    * features-> 
+ *          * add listeners + 
+ *         *  handlers to implement the different features
+ * 2. updation
+ *      a.) color
+ *      b.) text
+ * 3. Deletion 
+ * */
+
+
+
+/**
+ * creation of ticket
+ * * Tickets -> life cycle
+ *  1. creation (related UI constrution)
+ *      a. click on plus -> Opening Modal
+ *      b. Take text input + color input[default selection]
+ *      c. Enter is pressed -> 
+ *          *) Modal should disappear
+ *          *) The UI should be created 
+ *              -> text, color
+ *              -> id is missing (??)
+ *              -> lock and unlock button 
+ *      d. hide that modal , empty the content
+ * **/
+
+//1 
+addBtn.addEventListener("click", function () {
+    // display's modal
+    modal.style.display = "flex";
+})
+// 2. the color change should work
+prioritySetModal.addEventListener("click", function (e) {
+    if (e.target == e.currentTarget) {
+        return;
+    }
+
+    currentColor = e.target.classList[1];
+    ;    // remove active  -> all
+    for (let i = 0; i < priorityColorArray.length; i++) {
+        priorityColorArray[i].classList.remove("active")
+    }
+
+    // add active to required element
+    e.target.classList.add("active");
+})
+
+// 3. when someon presse enter -> 
+modal.addEventListener("keypress", function (e) {
+    if (e.key !== "Enter") {
+        return;
+    }
+    // take content
+    const content = textArea.value;
+    createTicket(content, currentColor);
+
+    // reset it's existence 
+    textArea.value = "";
+    currentColor = "green";
+    modal.style.display = "none";
+
+})
+
+function createTicket(value, color) {
+//  *) Adding UI
+//         * -> text, color
+//         * -> id is missing(??)
+//             * -> lock and unlock button 
+//     *    * features -> 
+//  *          * add listeners + 
+//  *         * handlers to implement the different features
+//         * 2. updation
+//            * a.) color
+//            * b.) text
+//          * 3. Deletion 
+    console.log("value", value, "color", color)
+}
+
+
