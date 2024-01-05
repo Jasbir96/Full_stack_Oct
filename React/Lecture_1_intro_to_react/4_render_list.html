@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- algorithm to efficiently manipulate your UI -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <!-- React DOM  -> uses react to update the DOM-->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- transpiler -> JSX -> into javascript -->
+    <!-- 
+JSX to js code
+New version js -> older version
+Typescript-> js
+     -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <h1>React cdn example</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+        function List() {
+            let stationary = ["Pen", "Pencil", "Eraser", "Ruler"];
+            // let liItemsArr = [];
+            // for (let i = 0; i < stationary.length; i++) {
+            //     let element = stationary[i];
+            //     const liItem = <li>{element}</li>;
+            //     liItemsArr.push(liItem);
+            // }
+            return <div>
+                <h2>List Items</h2>
+                <ul>{stationary.map((element, idx) => {
+                    return <li key={idx}>{element}</li>
+                })}</ul>
+            </div>
+        }
+        ReactDOM.render(<List></List>, document.getElementById("root"));
+    </script>
+
+</body>
+
+</html>
+
+<!-- usecase of JSX
+    JSX -> sytax sugar  -> for writing react code as i require use of html elements  , css and js togethger
+-->
+
+
+<!-- usecase of React Ecosystem
+1. React -> algorithm -> how to effciently manipulate your UI
+2. React DOM -> acually update the DOM 
+3. Babel -> it is a transpiler(translator) converts one version, JSX-> JS, Typesecript -> JS
+4. Webpack,parcel -> module bundler-> 
+    * modularize the code
+    * code splitting 
+    * building an optimized output from all the input code ()
+5. JSX -> syntax sugar to write html and js together, inspired from template strings
+6. Components :Components are independent and reusable bits of code.
+They serve the same purpose as JavaScript functions, and finally retrun html code 
+7. props: it is used to configure the children component by passing different properties , it is similare to html attributes,
+that's why it is used to send data from parent children 
+8. list -> you just need map to give an array of html element
+9. Keys -> are used internally to identify list elements uniquley 
+10. React.Fragment -> used to wrap multiple elements/components without adding any extra elemns
+-->
+
+<!--
+    1. if there are lot of dynamic content -> lot of ui changes ->
+     then only react makes sense otherwise it overcomplicates the things (vanilla stack is better)
+    2. React -> client side rendered -> SEO is bad by default 
+    4. React -> a normal library and not a complete solution (Next) (angular is better)
+  -->

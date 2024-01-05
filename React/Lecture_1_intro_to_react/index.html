@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- algorithm to efficiently manipulate your UI -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <!-- React DOM  -> uses react to update the DOM-->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- transpiler -> JSX -> into javascript -->
+    <!-- 
+JSX to js code
+New version js -> older version
+Typescript-> js
+     -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <h1>React cdn example</h1>
+    <div id="root"></div>
+    <!-- single Page applcation : JS -->
+    <script type="text/babel">
+        // -> component : a function that returns HTML
+        function HELLO() {
+            let name = "React";
+            let age = 30;
+            // {} -> you should get something in return
+            return <h1>I am Hello component Hi I am
+                {name} and you are {age > 18 ? "eligible" : "still a teen"}</h1>
+        }
+        // a method in REACTDOM -> puts the retruned HTML from componente in root element
+        ReactDOM.render(<HELLO></HELLO>, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
+
+<!-- usecase of JSX
+    JSX -> sytax sugar  -> for writing react code as i require use of html elements  , css and js togethger
+-->

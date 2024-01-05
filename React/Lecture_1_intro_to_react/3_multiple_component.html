@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- algorithm to efficiently manipulate your UI -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <!-- React DOM  -> uses react to update the DOM-->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- transpiler -> JSX -> into javascript -->
+    <!-- 
+JSX to js code
+New version js -> older version
+Typescript-> js
+     -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <h1>React cdn example</h1>
+    <div id="root"></div>
+    <!-- single Page applcation : JS -->
+    <script type="text/babel">
+        // -> component : a function that returns HTML
+        function HELLO(props) {
+            const { name, age } = props;
+            console.log("in HELLO", name, age)
+            // {} -> you should get something in return
+            return <h1>I am Hello component Hi I am
+                {name} and you are {age > 18 ? "eligible" : "still a teen"}</h1>
+        }
+        // create -> parent component from children component -> 
+        // significance -> you can break a problem into multiple smaller parts 
+        function HELLOPARENT() {
+            return <React.Fragment>
+                <HELLO name={"Jasbir"} age={27}></HELLO>
+                <HELLO name={"Rajneesh"} age={17}></HELLO>
+                <HELLO name={"Kartik"} age={28}></HELLO>
+                <HELLO name={"Pankaj"} age={30}></HELLO>
+                <HELLO name={"Puneet"} age={33}></HELLO>
+            </React.Fragment>
+        }
+        // a method in REACTDOM -> puts the retruned HTML from componente in root element
+        ReactDOM.render(<HELLOPARENT></HELLOPARENT>, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
+
+<!-- 
+because -> reactdom render only one component -> so you have to compose multiple component into a parent component
+because that componnet will only be rendered
+
+1. component: Components are independent and reusable bits of code.
+They serve the same purpose as JavaScript functions,
+but work in isolation and return HTML
+2. Prop : properties passed to a component helps to configure that differenlty
+3. JSX -> Javascript and XML(combines syntax of HTML and JS)
+4. you create bigger components using smaller component -> component
+5. All the components starts with Uppercase 
+-->
