@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- algorithm to efficiently manipulate your UI -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <!-- React DOM  -> uses react to update the DOM-->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- transpiler -> JSX -> into javascript -->
+    <!-- 
+JSX to js code
+New version js -> older version
+Typescript-> js
+     -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root"></div>
+    <script type="text/babel">
+        function Counter() {
+            // js variable
+            let countVar;
+            console.log("countVar", countVar)
+            countVar = 10;
+            console.log("countVar", countVar)
+            // input -> inital value of the state variable on which change will cause -> 
+            // re-render
+            // output -> state variable, a method to update the state variable
+            const [count, setCount] = React.useState(0);
+            console.log("render", "state count", count);
+            const increment = () => {
+                // console.log("inc");
+                console.log("inc", count);
+                setCount(count + 1);
+            }
+            const decrement = () => {
+                console.log("dec", count);
+
+                setCount(count - 1);
+            }
+
+            return (
+                <React.Fragment>
+                    {console.log("inside HTML")}
+                    {console.log("`````````````````````````````````")}
+                    <button onClick={increment}>+</button>
+                    <span>{count}</span>
+                    <button onClick={decrement}>-</button>
+                </React.Fragment >
+            )
+        }
+        ReactDOM.render(<Counter></Counter>, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
+
+<!-- 
+1. render -> the function is called  and state variable get's it's init value 
+2. re-render-> fn is called again memory allocation will be done for all the var,
+ fns inside it but not for state variables 
+
+ -->

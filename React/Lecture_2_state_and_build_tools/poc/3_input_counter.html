@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- algorithm to efficiently manipulate your UI -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <!-- React DOM  -> uses react to update the DOM-->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- transpiler -> JSX -> into javascript -->
+    <!-- 
+JSX to js code
+New version js -> older version
+Typescript-> js
+     -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        .set {
+            border-bottom: 1px solid;
+            padding-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+    <script type="text/babel">
+        function Counter() {
+            document
+            // input -> inital value of the state variable on which change will cause -> 
+            // re-render
+            // output -> state variable, a method to update the state variable
+            const [count, setCount] = React.useState(0);
+            const [value, setValue] = React.useState("");
+            console.log("render", "state count", count);
+            const increment = () => {
+                // console.log("inc");
+                console.log("inc", count);
+                setCount(Number(count) + 1);
+            }
+            const decrement = () => {
+                console.log("dec", count);
+                setCount(Number(count) - 1);
+            }
+            const updateCounter = () => {
+                setCount(value);
+                setValue("");
+            }
+            return (
+                <React.Fragment>
+                    <div>
+                        <div class="set">
+                            <input type="text"
+                                value={value}
+                                onChange={(e) => { setValue(e.target.value) }}
+                            />
+                            <button
+                                onClick={updateCounter}
+                            >Set</button>
+                        </div>
+                        <h2>Counter  </h2>
+                        <button onClick={increment}> + </button>
+                        <p>{count}</p>
+                        <button onClick={decrement}> - </button>
+                    </div>
+                </React.Fragment >
+            )
+        }
+        ReactDOM.render(<Counter></Counter>, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
+
+<!-- 
+    1. React -> single source of truth about a particular status of UI should -> state
+        a. uncontrolled component : component whose UI is not controlled by react state
+        b. controlled component : component whose UI is controlled by react state
+ -->
