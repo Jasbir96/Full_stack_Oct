@@ -9,7 +9,7 @@ function InfiniteScroll() {
     const [pageNum, setPageNum] = useState(1);
     const observer = useRef(null);
     // take some input, retrun som output
-    const [data, loader, error] = useFetchParams(pageNum);
+    const [data, loader, error, haveMore] = useFetchParams(pageNum);
     /***
      * 1. data -> fetch an API, 
      *      -> loader 
@@ -22,16 +22,22 @@ function InfiniteScroll() {
 
     const lastBookElementRef = (node) => {
         // for case of loading -> return 
-        if (loader) return;
+        // 2. step 
+        if (loading)
+            return;
         // remove the prev last guy 
-        if (observer.current) 
-        observer.current.disconnect();
+        if (observer.current)
+            observer.current.disconnect();
+
         // whneever you see th last element -> update the page
         observer.current = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 console.log(entries);
+                // 1, problem -=> if post run out
+                if (haveMore) {
+                    setPageNum((prevPageNumber) => prevPageNumber + 1);
+                }
                 // here is the place you should incrementoing the pageNum
-                setPageNum((prevPageNumber) => prevPageNumber + 1);
             }
         });
         // add it the target 

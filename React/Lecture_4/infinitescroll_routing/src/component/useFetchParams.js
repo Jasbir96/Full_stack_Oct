@@ -2,12 +2,12 @@
  * it should be  a pure js function 
  * it should always start with use 
  * */
-import React,{useState,useEffect} from 'react';
-export default function useFetchParams(...dependecy ) {
+import React, { useState, useEffect } from 'react';
+export default function useFetchParams(...dependecy) {
     const [data, setData] = useState([]);
     const [loader, setLoader] = useState(false);
     const [error, setError] = useState(false);
-
+    const [haveMore, setHaveMore] = useState(true);
     useEffect(function handler() {
         (async function () {
             try {
@@ -17,8 +17,13 @@ export default function useFetchParams(...dependecy ) {
                         new URLSearchParams({ _page: dependecy, _limit: 10 })
                     )
                 const jsonResp = await resp.json();
-                console.log(jsonResp)
-                setData([...data, ...jsonResp]);
+                // console.log(jsonResp)
+                if (jsonResp.length == 0) {  
+                    setHaveMore(false);
+                    
+                } else {
+                    setData([...data, ...jsonResp]);
+                }
             } catch (err) {
                 setError(err.message);
                 setTimeout(() => {
@@ -30,5 +35,5 @@ export default function useFetchParams(...dependecy ) {
             }
         })()
     }, dependecy);
-    return [data, loader, error];
+    return [data, loader, error, haveMore];
 }
