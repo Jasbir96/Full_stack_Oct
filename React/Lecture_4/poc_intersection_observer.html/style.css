@@ -1,0 +1,28 @@
+body {
+    height: 150vh;
+    /* Make the body taller for scrolling */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.observer-target {
+    height: 100px;
+    background-color: lightblue;
+}
+
+.content {
+    background-color: lightgreen;
+    height: 80vh;
+    color: white;
+    font-size: 5rem;
+}
+
+.red {
+    background-color: lightcoral;
+}
+
+;
+
+.gray {
+    background-color: lightgray;
+}
