@@ -1,7 +1,6 @@
 
 
 function Product({ product, deleteProduct }) {
-console.log(product)
     return (
         <div className="product" key={product.id} >
             <img src={product.image} alt=""

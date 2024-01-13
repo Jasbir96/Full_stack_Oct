@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import useFetchList from '../Hooks/useFetchList';
 import Product from './Components/Product';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+const productsUrl = `https://fakestoreapi.com/products`
+const categoriesUrl = `https://fakestoreapi.com/products/categories`;
+
 function Home() {
     /***
      * 1. Static UI ->  
@@ -24,14 +29,19 @@ function Home() {
      * Products : https://fakestoreapi.com/products
      * Categroeis : https://fakestoreapi.com/products/categories
      * **/
-
     /**
      * 1. state variable -> listing all the products
      * 2.  how should i get the products : 
      * **/
+    
     // custom Hook
-    const [productList, loader, setProductList] = useFetchList();
+    const [productList, productLoader, setProductList] = useFetchList(productsUrl);
+    // reused the custom hook
+    const [categoryList, categoryLoader, setCategoryList] = useFetchList(categoriesUrl);
     const [searchTerm, setSearchTerm] = useState("");
+    /**************************sort : 0 : unsorted , 1: increasing order , -1 : decreasing order ************************************/
+    const [sortDir, setsortDir] = useState(0);
+
     const deleteProduct = (cId) => {
         const restOfProducts = productList.filter((product) => {
             return cId != product.id;
@@ -43,6 +53,7 @@ function Home() {
      * filtering -> productList -> filteredProduct
      * */
     let filteredList = productList;
+    console.log(filteredList);
     if (searchTerm != "") {
         // filter out the elements that contains your search term 
         filteredList = filteredList.filter((product) => {
@@ -51,6 +62,39 @@ function Home() {
             return lowerTitle.includes(lowerSearchTerm);
         })
     }
+    let sortedList = filteredList;
+    if (sortDir !== 0) {
+        /***
+         * sort -> a hof -> by default do dictionary sort -> alphabetical sort
+         * 1. if you need to sort it in any other way -> you need to a comparator function
+         * 2. sort function updates original array 
+         * 
+            * * */
+        // we are sorting on the basis of prices
+        function incComparator(product1, product2) {
+            if (product1.price > product2.price) {
+                //p1>p2
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+        function decComparator(product1, product2) {
+            if (product1.price < product2.price) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+        if (sortDir == 1) {
+
+            sortedList.sort(incComparator);
+        } else {
+            sortedList.sort(decComparator);
+        }
+    }
+
+
 
     return (
         <>
@@ -64,17 +108,47 @@ function Home() {
                             setSearchTerm(e.target.value)
                         }}
                     />
+                    <div className="icons_container">
+                        <ArrowCircleUpIcon
+                            style={{ color: "white" }}
+                            fontSize="large"
+                            onClick={() => {
+                                setsortDir(1)
+                            }}
+                        ></ArrowCircleUpIcon>
+                        <ArrowCircleDownIcon
+                            fontSize="large"
+                            style={{ color: "white" }}
+                            onClick={() => {
+                                setsortDir(-1)
+                            }}
+                        ></ArrowCircleDownIcon>
+                    </div>
                 </div>
-            </header>
+                <div className="categories_wrapper">
 
-            {loader == true ? <h1>...Loading</h1> :
+                    {categoryLoader == true ? <h1>...Loading</h1> :
+                        <main className="product_wrapper">
+                            <>{categoryList.length == 0 ? <h1>Nothing here</h1> :
+                                <>{
+                                    categoryList.map((category, idx) => {
+                                        return <button className="category_option" key={idx}
+                                        > {category}</button>
+                                    })
+                                }</>
+                            }</>
+                        </main>
+                    }
+                </div>
+
+            </header>
+            {productLoader == true ? <h1>...Loading</h1> :
                 <main className="product_wrapper">
-                    <>{filteredList.length == 0 ? <h1>Nothing here</h1> :
+                    <>{sortedList.length == 0 ? <h1>Nothing here</h1> :
                         <>{
-                            filteredList.map((product, idx) => {
+                            sortedList.map((product, idx) => {
                                 return (<Product
                                     product={product}
-
                                     deleteProduct={deleteProduct}
                                 ></Product>)
                             })
@@ -82,7 +156,6 @@ function Home() {
                     }</>
                 </main>
             }
-
         </>
 
 
@@ -93,6 +166,7 @@ export default Home;
 
 /**
  * HW -> stylings -> replace module
+ * create -> hooks for filter , and sort 
  *
  *  
  *  
@@ -103,4 +177,24 @@ export default Home;
  * on slow networks -> you react bundle in itself takes a lot of time to load
  * // react ->served -> it init self
  * application get loaded -> react builds the UI -> APi request is send 
+ * */
+
+
+/****
+ * [a,b,c,d]
+ * sTerm ="a"
+ * sortTerm="desc";
+ * categoryUpdate=""
+ * 
+ * let filterTerm=productList;
+ * useEffect(()=>{
+ * ()=>{
+ * filterArr=filterArr.filter();
+ * }
+ * },[sterm,sortTerm,categories])
+//  pagination, 
+ * */ 
+
+/****
+ * if you a child componnet  -> update conditional -> huge 
  * */ 
