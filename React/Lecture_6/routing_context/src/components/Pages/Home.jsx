@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import useFetchList from '../Hooks/useFetchList';
-import Product from './Components/Product';
+import useFetchList from '../../Hooks/useFetchList';
+import Product from '../Components/Product';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-import Categories from './Components/Categories';
+import Categories from '../Components/Categories';
+import Pagination from '../Components/Pagination';
 const productsUrl = `https://fakestoreapi.com/products`
 const categoriesUrl = `https://fakestoreapi.com/products/categories`;
 
@@ -154,6 +155,8 @@ function Home() {
                     }</>
                 </main>
             }
+
+            <Pagination></Pagination>
         </>
 
 
