@@ -30,7 +30,7 @@ function Parent() {
     <>
       <h2>Parent</h2>
       <h2>⬇</h2>
-      <Children message={message}></Children>
+      <Children ></Children>
     </>
   )
 }
@@ -41,7 +41,7 @@ function Children() {
     <>
       <h2>Children </h2>
       <h2>⬇</h2>
-      <h3>Message {message}</h3>
+      <h3>Message {value}</h3>
     </>
   )
 }
