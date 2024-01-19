@@ -6,7 +6,6 @@ const cartReducer = (state, action) => {
         case 'ADD_TO_CART':
             // Check if the item is already in the cart
             const existingItem = state.cart.find(item => item.id === action.payload.id);
-
             if (existingItem) {
                 // If the item is already in the cart, update its quantity
                 return {
@@ -35,6 +34,8 @@ const cartReducer = (state, action) => {
     }
 };
 
+
+
 const initialState = {
     cart: [
         { id: 1, name: 'Product A', quantity: 2 },
@@ -45,8 +46,10 @@ const ShoppingCart = () => {
     // Initial state for the shopping cart with seed data
     // useReducer hook to manage state transitions
     const [state, dispatch] = useReducer(cartReducer, initialState);
+    
     const addToCart = item => {
         // Dispatch an action to add the item to the cart
+    
         dispatch({ type: 'ADD_TO_CART', payload: item });
     };
 
@@ -72,3 +75,4 @@ const ShoppingCart = () => {
 };
 
 export default ShoppingCart;
+

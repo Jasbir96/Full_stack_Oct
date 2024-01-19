@@ -43,7 +43,35 @@ const initialState = {
     totalCounter:3
 };
 ```
- 
+## Notions 
+ -> Redux -> 
+        * context(global state)
+        * usereducer(update /work with complex state)
+        *  peformance  ->React.memo
+        *  lot of boiler plate code -> particular structure
+
+### Redux   
+* 1. React component : 
+           1. state managment
+           2. Event listners  and business logic
+           3. UI 
+2. state management -> 
+            *)  set the state 
+            *) update of the state
+3. Real world apps
+        * 1000+ they will in tree format
+            * Passing of the props -> avoid this
+            * proper way to handle global state -> 
+            * it should also be peformant 
+4. central state managment library-> predictvely  manage
+the global state .
+ 5. Redux : 
+    *  Third Party JS library for state managment (install it ) -> redux , react-redux
+    *  It gives you feature known as `store` -> where all the state are stored;
+    
+**note**: recommended way to use redux -> redux toolkit , learning it through core redux library
+
+
 
 
 
