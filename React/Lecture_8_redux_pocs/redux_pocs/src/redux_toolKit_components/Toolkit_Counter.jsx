@@ -1,31 +1,26 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux"
-
+import { useDispatch, useSelector } from "react-redux";
+import counterSlice from '../redux_toolkit/CounterSlice';
+const actions = counterSlice.actions;
 function Counter() {
     // reading 
     const count = useSelector((store) => {
-
-        console.log("selector")
         return store.count;
-
     });
-    const [incCount, setIncCount] = useState();
-    // update 
     const dispatch = useDispatch();
 
-    console.log("counter", count);
+    const [incCount, setIncCount] = useState();
+    // update 
+
     const handleIncrement = () => {
-        // setCount(count + 1);
-        dispatch({ type: "inc_count" })
+        dispatch(actions.increment());
     }
     const handleDecrement = () => {
-        // setCount(count - 1);
-        dispatch({ type: "dec_count" })
+        dispatch(actions.decrement());
 
     }
 
     const updateByN = () => {
-        dispatch({ type: "inc_by_n", payload: incCount })
     }
     return (
         <div >

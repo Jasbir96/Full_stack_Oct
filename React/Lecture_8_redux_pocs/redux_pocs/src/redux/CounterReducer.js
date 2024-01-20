@@ -1,10 +1,10 @@
 let initialState =
 {
-    count: 0,
-    value: 10,
+    count: 0
 };
 function CounterReducer(state = initialState, action) {
     // actions should been written
+    console.log("reducer" ,state)
     switch (action.type) {
         case "dec_count":
             return {
