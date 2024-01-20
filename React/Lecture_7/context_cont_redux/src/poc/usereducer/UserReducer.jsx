@@ -13,13 +13,12 @@ const counterReducer = (state, action) => {
         default:
             return state
     }
-
 }
 
 const initalState = 0
 const CounterUseReducer = () => {
     // another of updating the state 
-    const [cState, dispatch] = useReducer(counterReducer, initalState);
+    const [cState, dispatch] = useReducer( counterReducer, initalState);
     // Function to increment the counter by 1
     return (
         <div>
