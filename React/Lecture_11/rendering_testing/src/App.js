@@ -1,18 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import Counter from "./Components/Counter";
 
 function App() {
-  const [count, setCount] = useState();
-  const [input, setInput] = useState();
-  const incCunt = () => {
-    setCount((count) => count + 1)
-  }
+
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -24,6 +20,7 @@ function App() {
         >
           Learn React
         </a>
+    <Counter></Counter>
       </header>
     </div>
   );
