@@ -2,7 +2,7 @@
 import userslice from "./UserSlice";
 const actions = userslice.actions;
 // 1 to send data to middleWare
-export default fetchMiddleWare = (params) => {
+const fetchMiddleWare = (params) => {
     // 2. you automatically get the dispatch
     return async function (dispatch) {
         try {
@@ -14,8 +14,8 @@ export default fetchMiddleWare = (params) => {
         } catch (err) {
             dispatch(actions.userError());
         } finally {
-            setLoading(false);
             dispatch(actions.userLoading(false));
         }
     }
-} 
+}
+export default  fetchMiddleWare;

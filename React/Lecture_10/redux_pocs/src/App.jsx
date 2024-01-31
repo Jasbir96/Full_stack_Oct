@@ -13,14 +13,11 @@ import User from './normal_components/User';
 function App() {
   return (
     <>
-
       <h1>React POCS</h1>
       <User></User>
       {/* <h1>Redux POCS</h1> */}
       <h2>Normal Components</h2>
       <Counter></Counter>
-
-
       <h3>Toolkit</h3>
       {/* <Provider store={toolkitStore}>
         <Toolkit_Counter></Toolkit_Counter>
